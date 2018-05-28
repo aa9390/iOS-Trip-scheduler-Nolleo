@@ -1,0 +1,382 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CD44FC6D20BBBE570034B048 /* icon_others.png in Resources */ = {isa = PBXBuildFile; fileRef = CD44FC6C20BBBE560034B048 /* icon_others.png */; };
+		CD44FC6F20BBCB410034B048 /* BasicInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD44FC6E20BBCB410034B048 /* BasicInfoTableViewCell.swift */; };
+		CD44FC7120BBDFEC0034B048 /* MypageDetailInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD44FC7020BBDFEC0034B048 /* MypageDetailInfoViewController.swift */; };
+		CD7D13E120B95403005A8AAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7D13E020B95403005A8AAC /* AppDelegate.swift */; };
+		CD7D13E320B95403005A8AAC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7D13E220B95403005A8AAC /* LoginViewController.swift */; };
+		CD7D13E620B95403005A8AAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD7D13E420B95403005A8AAC /* Main.storyboard */; };
+		CD7D13E920B95403005A8AAC /* Nolleo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CD7D13E720B95403005A8AAC /* Nolleo.xcdatamodeld */; };
+		CD7D13EB20B95403005A8AAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD7D13EA20B95403005A8AAC /* Assets.xcassets */; };
+		CD7D13EE20B95403005A8AAC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD7D13EC20B95403005A8AAC /* LaunchScreen.storyboard */; };
+		CD7D13F620B95876005A8AAC /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7D13F520B95876005A8AAC /* CreateViewController.swift */; };
+		CD7D13FA20BAFE8C005A8AAC /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7D13F920BAFE8C005A8AAC /* MainTableViewController.swift */; };
+		CD7D13FC20BAFEAE005A8AAC /* MypageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7D13FB20BAFEAE005A8AAC /* MypageTableViewController.swift */; };
+		CD7D13FE20BB09DB005A8AAC /* icon_profile_woman.png in Resources */ = {isa = PBXBuildFile; fileRef = CD7D13FD20BB09DB005A8AAC /* icon_profile_woman.png */; };
+		CD7D140320BB0F7C005A8AAC /* icon_main.ico in Resources */ = {isa = PBXBuildFile; fileRef = CD7D140120BB0F7B005A8AAC /* icon_main.ico */; };
+		CD7D140420BB0F7C005A8AAC /* icon_mypage.png in Resources */ = {isa = PBXBuildFile; fileRef = CD7D140220BB0F7C005A8AAC /* icon_mypage.png */; };
+		CD7D140620BB16CE005A8AAC /* BasicInfoSaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7D140520BB16CE005A8AAC /* BasicInfoSaveViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		CD44FC6C20BBBE560034B048 /* icon_others.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_others.png; sourceTree = "<group>"; };
+		CD44FC6E20BBCB410034B048 /* BasicInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicInfoTableViewCell.swift; sourceTree = "<group>"; };
+		CD44FC7020BBDFEC0034B048 /* MypageDetailInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageDetailInfoViewController.swift; sourceTree = "<group>"; };
+		CD7D13DD20B95403005A8AAC /* Nolleo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nolleo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD7D13E020B95403005A8AAC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CD7D13E220B95403005A8AAC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		CD7D13E520B95403005A8AAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CD7D13E820B95403005A8AAC /* Nolleo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Nolleo.xcdatamodel; sourceTree = "<group>"; };
+		CD7D13EA20B95403005A8AAC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CD7D13ED20B95403005A8AAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CD7D13EF20B95403005A8AAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD7D13F520B95876005A8AAC /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
+		CD7D13F920BAFE8C005A8AAC /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
+		CD7D13FB20BAFEAE005A8AAC /* MypageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageTableViewController.swift; sourceTree = "<group>"; };
+		CD7D13FD20BB09DB005A8AAC /* icon_profile_woman.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_profile_woman.png; sourceTree = "<group>"; };
+		CD7D140120BB0F7B005A8AAC /* icon_main.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = icon_main.ico; sourceTree = "<group>"; };
+		CD7D140220BB0F7C005A8AAC /* icon_mypage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_mypage.png; sourceTree = "<group>"; };
+		CD7D140520BB16CE005A8AAC /* BasicInfoSaveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicInfoSaveViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CD7D13DA20B95403005A8AAC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CD7D13D420B95403005A8AAC = {
+			isa = PBXGroup;
+			children = (
+				CD7D13DF20B95403005A8AAC /* Nolleo */,
+				CD7D13DE20B95403005A8AAC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CD7D13DE20B95403005A8AAC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CD7D13DD20B95403005A8AAC /* Nolleo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CD7D13DF20B95403005A8AAC /* Nolleo */ = {
+			isa = PBXGroup;
+			children = (
+				CD44FC6C20BBBE560034B048 /* icon_others.png */,
+				CD7D140120BB0F7B005A8AAC /* icon_main.ico */,
+				CD7D140220BB0F7C005A8AAC /* icon_mypage.png */,
+				CD7D13FD20BB09DB005A8AAC /* icon_profile_woman.png */,
+				CD7D13E020B95403005A8AAC /* AppDelegate.swift */,
+				CD7D13E220B95403005A8AAC /* LoginViewController.swift */,
+				CD7D13E420B95403005A8AAC /* Main.storyboard */,
+				CD7D13EA20B95403005A8AAC /* Assets.xcassets */,
+				CD7D13EC20B95403005A8AAC /* LaunchScreen.storyboard */,
+				CD7D13EF20B95403005A8AAC /* Info.plist */,
+				CD7D13E720B95403005A8AAC /* Nolleo.xcdatamodeld */,
+				CD7D13F520B95876005A8AAC /* CreateViewController.swift */,
+				CD7D13F920BAFE8C005A8AAC /* MainTableViewController.swift */,
+				CD7D13FB20BAFEAE005A8AAC /* MypageTableViewController.swift */,
+				CD7D140520BB16CE005A8AAC /* BasicInfoSaveViewController.swift */,
+				CD44FC6E20BBCB410034B048 /* BasicInfoTableViewCell.swift */,
+				CD44FC7020BBDFEC0034B048 /* MypageDetailInfoViewController.swift */,
+			);
+			path = Nolleo;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CD7D13DC20B95403005A8AAC /* Nolleo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CD7D13F220B95403005A8AAC /* Build configuration list for PBXNativeTarget "Nolleo" */;
+			buildPhases = (
+				CD7D13D920B95403005A8AAC /* Sources */,
+				CD7D13DA20B95403005A8AAC /* Frameworks */,
+				CD7D13DB20B95403005A8AAC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Nolleo;
+			productName = Nolleo;
+			productReference = CD7D13DD20B95403005A8AAC /* Nolleo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CD7D13D520B95403005A8AAC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = SWUCOMPUTER;
+				TargetAttributes = {
+					CD7D13DC20B95403005A8AAC = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = CD7D13D820B95403005A8AAC /* Build configuration list for PBXProject "Nolleo" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CD7D13D420B95403005A8AAC;
+			productRefGroup = CD7D13DE20B95403005A8AAC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CD7D13DC20B95403005A8AAC /* Nolleo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CD7D13DB20B95403005A8AAC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD7D140320BB0F7C005A8AAC /* icon_main.ico in Resources */,
+				CD7D13EE20B95403005A8AAC /* LaunchScreen.storyboard in Resources */,
+				CD44FC6D20BBBE570034B048 /* icon_others.png in Resources */,
+				CD7D13EB20B95403005A8AAC /* Assets.xcassets in Resources */,
+				CD7D13E620B95403005A8AAC /* Main.storyboard in Resources */,
+				CD7D13FE20BB09DB005A8AAC /* icon_profile_woman.png in Resources */,
+				CD7D140420BB0F7C005A8AAC /* icon_mypage.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CD7D13D920B95403005A8AAC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD44FC6F20BBCB410034B048 /* BasicInfoTableViewCell.swift in Sources */,
+				CD7D13FC20BAFEAE005A8AAC /* MypageTableViewController.swift in Sources */,
+				CD7D13F620B95876005A8AAC /* CreateViewController.swift in Sources */,
+				CD44FC7120BBDFEC0034B048 /* MypageDetailInfoViewController.swift in Sources */,
+				CD7D13E920B95403005A8AAC /* Nolleo.xcdatamodeld in Sources */,
+				CD7D13E320B95403005A8AAC /* LoginViewController.swift in Sources */,
+				CD7D13FA20BAFE8C005A8AAC /* MainTableViewController.swift in Sources */,
+				CD7D13E120B95403005A8AAC /* AppDelegate.swift in Sources */,
+				CD7D140620BB16CE005A8AAC /* BasicInfoSaveViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		CD7D13E420B95403005A8AAC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CD7D13E520B95403005A8AAC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CD7D13EC20B95403005A8AAC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CD7D13ED20B95403005A8AAC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CD7D13F020B95403005A8AAC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CD7D13F120B95403005A8AAC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CD7D13F320B95403005A8AAC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Nolleo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ksy.Nolleo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CD7D13F420B95403005A8AAC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Nolleo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ksy.Nolleo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CD7D13D820B95403005A8AAC /* Build configuration list for PBXProject "Nolleo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD7D13F020B95403005A8AAC /* Debug */,
+				CD7D13F120B95403005A8AAC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CD7D13F220B95403005A8AAC /* Build configuration list for PBXNativeTarget "Nolleo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD7D13F320B95403005A8AAC /* Debug */,
+				CD7D13F420B95403005A8AAC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CD7D13E720B95403005A8AAC /* Nolleo.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CD7D13E820B95403005A8AAC /* Nolleo.xcdatamodel */,
+			);
+			currentVersion = CD7D13E820B95403005A8AAC /* Nolleo.xcdatamodel */;
+			path = Nolleo.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = CD7D13D520B95403005A8AAC /* Project object */;
+}
