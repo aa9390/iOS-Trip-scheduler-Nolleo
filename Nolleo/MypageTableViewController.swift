@@ -13,6 +13,13 @@ class MypageTableViewController: UITableViewController {
     
     var BasicInfo: [NSManagedObject] = []
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // 테이블 뷰 높이 지정
+        tableView.rowHeight = 80
+    }
+    
     func getContext () -> NSManagedObjectContext {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         return appDelegate.persistentContainer.viewContext }
@@ -46,30 +53,23 @@ class MypageTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // 커스텀 셀 사용함을 명시
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "Mypage Basic Info Cell", for: indexPath) as! BasicInfoTableViewCell
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "Mypage Basic Info Cell") as! BasicInfoTableViewCell
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "Basic Info Cell", for: indexPath)
-//        let basicInfo = BasicInfo[indexPath.row]
-//
-//        var titledisplay: String = ""
-//        var zonedisplay: String = ""
-//
-//        if let titleLabel = basicInfo.value(forKey: "title") as? String {
-//            titledisplay = titleLabel }
-//
-//        if let zoneLabel = basicInfo.value(forKey: "area") as? String {
-//            zonedisplay = zoneLabel }
-//        cell.textLabel?.text = titledisplay
-//        cell.detailTextLabel?.text = zonedisplay
-//
-//        return cell
         
         let basicInfo = BasicInfo[indexPath.row]
         
         var titleDisplay: String = ""
         var areaDisplay: String = ""
-//        var startDateDisplay: Date
-//        var endDateDisplay: Date
+        var startDisplay: String = ""
+        var endDisplay: String = ""
+//        var saveDisplay: String = ""
+        
+        let formatter: DateFormatter = DateFormatter()
+        formatter.dateFormat = "yyyy.MM.dd"
+        
+//        let saveformatter: DateFormatter = DateFormatter()
+//        saveformatter.dateFormat = "MM.dd"
         
         if let labelTitle = basicInfo.value(forKey: "title") as? String {
             titleDisplay = labelTitle
@@ -79,35 +79,56 @@ class MypageTableViewController: UITableViewController {
             areaDisplay = labelArea
         }
         
-//        if let labelStartDate = basicInfo.value(forKey: "startdate") as? Date {
-//            startDateDisplay = labelStartDate
-//        }
-//
-//        if let labelEndDate = basicInfo.value(forKey: "enddate") as? Date {
-//            endDateDisplay = labelEndDate
+        if let labelStartDate = basicInfo.value(forKey: "startdate") as? Date {
+            startDisplay = formatter.string(from: labelStartDate)
+        }
+        
+        if let labelEndDate = basicInfo.value(forKey: "enddate") as? Date {
+            endDisplay = formatter.string(from: labelEndDate)
+        }
+        
+        if let labelEndDate = basicInfo.value(forKey: "enddate") as? Date {
+            endDisplay = formatter.string(from: labelEndDate)
+        }
+        
+//        if let labelSaveDate = basicInfo.value(forKey: "savedate") as? Date {
+//            saveDisplay = formatter.string(from: labelSaveDate)
 //        }
         
-        cell.labelArea?.text = areaDisplay
         cell.labelTitle?.text = titleDisplay
-//        cell.labelStartDate?.text = (String)startDateDisplay
-//        cell.labelEndDate?.text = (String)endDateDisplay
+        cell.labelArea?.text = areaDisplay
+        cell.labelStartDate.text = startDisplay
+        cell.labelEndDate.text = endDisplay
+//        cell.labelSaveDate.text = saveDisplay
         
         return cell
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
 
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Core Data 내의 해당 자료 삭제
+            let context = getContext()
+            context.delete(BasicInfo[indexPath.row])
+            do {
+                try context.save()
+                print("deleted!")
+            } catch let error as NSError {
+                print("Could not delete \(error), \(error.userInfo)") }
+            // 배열에서 해당 자료 삭제
+            BasicInfo.remove(at: indexPath.row)
+            // 테이블뷰 Cell 삭제
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
     
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    // Detail view로 넘어갈 때 기본 사항을 배열로 넘김
+    override func prepare (for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDetailInfoView" {
+            if let destination = segue.destination as? DetailInfoViewController {
+                if let selectedIndex = self.tableView.indexPathsForSelectedRows?.first?.row {
+                    destination.basicInfo = BasicInfo[selectedIndex] }
+            } }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    
 }

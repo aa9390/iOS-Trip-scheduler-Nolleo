@@ -53,22 +53,26 @@ class CreateViewController: UIViewController, UITextFieldDelegate {
     @IBAction func buttonSavePressed() {
         if textCreateId.text == "" {
             labelCreateStatus.text = "아이디를 입력하세요."
+            return;
         }
         
-        else if textCreatePw.text == "" {
+        if textCreatePw.text == "" {
             labelCreateStatus.text = "비밀번호를 입력하세요."
+            return;
         }
             
-        else if textCreatePwRe.text != textCreatePw.text {
+        if textCreatePwRe.text != textCreatePw.text {
             labelCreateStatus.text = "비밀번호를 확인해 주세요"
+            return;
         }
         
-        else if textCreateName.text == "" {
+        if textCreateName.text == "" {
             labelCreateStatus.text = "이름을 입력하세요."
+            return;
         }
         
         let gender = segCreateGender.titleForSegment(at: segCreateGender.selectedSegmentIndex)
-
+//        let birth = pickerCreateDate.date
         // insertUser.php의 Uri String 선언
         let urlString: String = "http://localhost:8888/nolleo/login/insertUser.php"
 
@@ -89,11 +93,16 @@ class CreateViewController: UIViewController, UITextFieldDelegate {
             + "&id=" + textCreateId.text!
             + "&password=" + textCreatePw.text!
             + "&name=" + textCreateName.text!
+//            + "&birth=" + birth
         
-//        restString += "&name=" + textCreateName.text!
+//        restString = restString + "&birth=" + birth
+        
         request.httpBody = restString.data(using: .utf8)
 
         self.executeRequest(request: request)
+        
+        // 회원가입 성공 시 이전 화면으로 이동
+        self.dismiss(animated: true, completion: nil)
     }
     
     func executeRequest (request: URLRequest) -> Void {

@@ -34,6 +34,8 @@ class BasicInfoSaveViewController: UIViewController, UITextFieldDelegate {
         object.setValue(segTripArea.titleForSegment(at: segTripArea.selectedSegmentIndex), forKey: "area")
         object.setValue(pickerStartDate.date, forKey: "startdate")
         object.setValue(pickarEndDate.date, forKey: "enddate")
+//        object.setValue(Date(), forKey: "saveDate")
+        
         do {
             try context.save()
             print("저장되었습니다.")
@@ -45,7 +47,6 @@ class BasicInfoSaveViewController: UIViewController, UITextFieldDelegate {
         self.dismiss(animated: true, completion: nil)
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -56,16 +57,4 @@ class BasicInfoSaveViewController: UIViewController, UITextFieldDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -14,6 +14,8 @@ class BasicInfoTableViewCell: UITableViewCell {
     @IBOutlet var labelTitle: UILabel!
     @IBOutlet var labelStartDate: UILabel!
     @IBOutlet var labelEndDate: UILabel!
+    @IBOutlet var labelSaveDate: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

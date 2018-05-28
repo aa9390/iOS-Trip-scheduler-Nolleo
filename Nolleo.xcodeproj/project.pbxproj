@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		CD44FC6D20BBBE570034B048 /* icon_others.png in Resources */ = {isa = PBXBuildFile; fileRef = CD44FC6C20BBBE560034B048 /* icon_others.png */; };
 		CD44FC6F20BBCB410034B048 /* BasicInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD44FC6E20BBCB410034B048 /* BasicInfoTableViewCell.swift */; };
-		CD44FC7120BBDFEC0034B048 /* MypageDetailInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD44FC7020BBDFEC0034B048 /* MypageDetailInfoViewController.swift */; };
+		CD44FC7120BBDFEC0034B048 /* DetailInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD44FC7020BBDFEC0034B048 /* DetailInfoViewController.swift */; };
 		CD7D13E120B95403005A8AAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7D13E020B95403005A8AAC /* AppDelegate.swift */; };
 		CD7D13E320B95403005A8AAC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7D13E220B95403005A8AAC /* LoginViewController.swift */; };
 		CD7D13E620B95403005A8AAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD7D13E420B95403005A8AAC /* Main.storyboard */; };
@@ -28,7 +28,7 @@
 /* Begin PBXFileReference section */
 		CD44FC6C20BBBE560034B048 /* icon_others.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_others.png; sourceTree = "<group>"; };
 		CD44FC6E20BBCB410034B048 /* BasicInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicInfoTableViewCell.swift; sourceTree = "<group>"; };
-		CD44FC7020BBDFEC0034B048 /* MypageDetailInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageDetailInfoViewController.swift; sourceTree = "<group>"; };
+		CD44FC7020BBDFEC0034B048 /* DetailInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoViewController.swift; sourceTree = "<group>"; };
 		CD7D13DD20B95403005A8AAC /* Nolleo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nolleo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD7D13E020B95403005A8AAC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CD7D13E220B95403005A8AAC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -92,7 +92,7 @@
 				CD7D13FB20BAFEAE005A8AAC /* MypageTableViewController.swift */,
 				CD7D140520BB16CE005A8AAC /* BasicInfoSaveViewController.swift */,
 				CD44FC6E20BBCB410034B048 /* BasicInfoTableViewCell.swift */,
-				CD44FC7020BBDFEC0034B048 /* MypageDetailInfoViewController.swift */,
+				CD44FC7020BBDFEC0034B048 /* DetailInfoViewController.swift */,
 			);
 			path = Nolleo;
 			sourceTree = "<group>";
@@ -176,7 +176,7 @@
 				CD44FC6F20BBCB410034B048 /* BasicInfoTableViewCell.swift in Sources */,
 				CD7D13FC20BAFEAE005A8AAC /* MypageTableViewController.swift in Sources */,
 				CD7D13F620B95876005A8AAC /* CreateViewController.swift in Sources */,
-				CD44FC7120BBDFEC0034B048 /* MypageDetailInfoViewController.swift in Sources */,
+				CD44FC7120BBDFEC0034B048 /* DetailInfoViewController.swift in Sources */,
 				CD7D13E920B95403005A8AAC /* Nolleo.xcdatamodeld in Sources */,
 				CD7D13E320B95403005A8AAC /* LoginViewController.swift in Sources */,
 				CD7D13FA20BAFE8C005A8AAC /* MainTableViewController.swift in Sources */,

@@ -3,10 +3,11 @@
     <entity name="BasicInfo" representedClassName="BasicInfo" syncable="YES" codeGenerationType="class">
         <attribute name="area" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="enddate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="savedate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="startdate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="BasicInfo" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="BasicInfo" positionX="-63" positionY="-18" width="128" height="120"/>
     </elements>
 </model>
