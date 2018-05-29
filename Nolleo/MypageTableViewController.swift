@@ -63,13 +63,13 @@ class MypageTableViewController: UITableViewController {
         var areaDisplay: String = ""
         var startDisplay: String = ""
         var endDisplay: String = ""
-//        var saveDisplay: String = ""
+        var saveDisplay: String = ""
         
         let formatter: DateFormatter = DateFormatter()
         formatter.dateFormat = "yyyy.MM.dd"
         
-//        let saveformatter: DateFormatter = DateFormatter()
-//        saveformatter.dateFormat = "MM.dd"
+        let saveformatter: DateFormatter = DateFormatter()
+        saveformatter.dateFormat = "MM.dd"
         
         if let labelTitle = basicInfo.value(forKey: "title") as? String {
             titleDisplay = labelTitle
@@ -91,15 +91,15 @@ class MypageTableViewController: UITableViewController {
             endDisplay = formatter.string(from: labelEndDate)
         }
         
-//        if let labelSaveDate = basicInfo.value(forKey: "savedate") as? Date {
-//            saveDisplay = formatter.string(from: labelSaveDate)
-//        }
+        if let labelSaveDate = basicInfo.value(forKey: "savedate") as? Date {
+            saveDisplay = saveformatter.string(from: labelSaveDate)
+        }
         
         cell.labelTitle?.text = titleDisplay
         cell.labelArea?.text = areaDisplay
         cell.labelStartDate.text = startDisplay
         cell.labelEndDate.text = endDisplay
-//        cell.labelSaveDate.text = saveDisplay
+        cell.labelSaveDate.text = saveDisplay
         
         return cell
     }
@@ -122,13 +122,30 @@ class MypageTableViewController: UITableViewController {
         }
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "toDetailView", sender: nil)
+    }
+    
     // Detail view로 넘어갈 때 기본 사항을 배열로 넘김
+//    override func prepare (for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "toDetailInfoView" {
+//            if let destination = segue.destination as? DetailInfoViewController {
+//                if let selectedIndex = self.tableView.indexPathsForSelectedRows?.first?.row {
+//                    destination.basic = BasicInfo[0] }
+//            } }
+//    }
+    
     override func prepare (for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toDetailInfoView" {
+        if segue.identifier == "toDetailView" {
             if let destination = segue.destination as? DetailInfoViewController {
-                if let selectedIndex = self.tableView.indexPathsForSelectedRows?.first?.row {
-                    destination.basicInfo = BasicInfo[selectedIndex] }
+                if let indexPath = self.tableView.indexPathForSelectedRow {
+                    destination.basic = BasicInfo[indexPath.row]
+                }
             } }
     }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "toDetailInfoView"
+//    }
     
 }

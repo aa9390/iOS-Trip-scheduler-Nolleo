@@ -72,7 +72,12 @@ class CreateViewController: UIViewController, UITextFieldDelegate {
         }
         
         let gender = segCreateGender.titleForSegment(at: segCreateGender.selectedSegmentIndex)
-//        let birth = pickerCreateDate.date
+        let formatter: DateFormatter = DateFormatter()
+        formatter.dateFormat = "yyyy.MM.dd"
+
+        let birth : String
+        birth = formatter.string(from: pickerCreateDate.date)
+        
         // insertUser.php의 Uri String 선언
         let urlString: String = "http://localhost:8888/nolleo/login/insertUser.php"
 
@@ -93,7 +98,7 @@ class CreateViewController: UIViewController, UITextFieldDelegate {
             + "&id=" + textCreateId.text!
             + "&password=" + textCreatePw.text!
             + "&name=" + textCreateName.text!
-//            + "&birth=" + birth
+            + "&birth=" + birth
         
 //        restString = restString + "&birth=" + birth
         

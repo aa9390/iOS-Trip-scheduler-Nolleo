@@ -28,13 +28,13 @@ class BasicInfoSaveViewController: UIViewController, UITextFieldDelegate {
     @IBAction func savePressed() {
         let context = getContext()
         let entity = NSEntityDescription.entity(forEntityName: "BasicInfo", in: context)
-        // friend record를 새로 생성함
+        // basicInfo record를 새로 생성함
         let object = NSManagedObject(entity: entity!, insertInto: context)
         object.setValue(textTripTitle.text, forKey: "title")
         object.setValue(segTripArea.titleForSegment(at: segTripArea.selectedSegmentIndex), forKey: "area")
         object.setValue(pickerStartDate.date, forKey: "startdate")
         object.setValue(pickarEndDate.date, forKey: "enddate")
-//        object.setValue(Date(), forKey: "saveDate")
+        object.setValue(Date(), forKey: "savedate")
         
         do {
             try context.save()
@@ -42,8 +42,6 @@ class BasicInfoSaveViewController: UIViewController, UITextFieldDelegate {
         } catch let error as NSError {
             print("저장하지 못했습니다. \(error), \(error.userInfo)") }
         
-        // 현재의 View를 없애고 이전 화면으로 복귀
-//        self.navigationController?.popViewController(animated: true)
         self.dismiss(animated: true, completion: nil)
     }
     

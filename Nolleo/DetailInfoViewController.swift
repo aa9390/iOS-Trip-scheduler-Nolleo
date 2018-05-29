@@ -15,30 +15,27 @@ class DetailInfoViewController: UIViewController {
     @IBOutlet var startDate: UILabel!
     @IBOutlet var endDate: UILabel!
     
-    var basicInfo: NSManagedObject?
+    var basic: NSManagedObject?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let basic = basicInfo {
-            textTitle.text = basic.value(forKey: "title") as? String
-            textArea.text = basic.value(forKey: "area") as? String
+        if let basicToDetail = basic {
+            textTitle.text = basicToDetail.value(forKey: "title") as? String
+            textArea.text = basicToDetail.value(forKey: "area") as? String
+            let savedStartdate : Date? = basicToDetail.value(forKey: "startdate") as? Date
+            let savedEnddate : Date? = basicToDetail.value(forKey: "enddate") as? Date
+            let formatter: DateFormatter = DateFormatter()
+            formatter.dateFormat = "yyyy.MM.dd"
             
-//            let savedStartdate : Date? = basic.value(forKey: "startdate") as? Date
-//            let savedEnddate : Date? = basic.value(forKey: "endDate") as? Date
-//            let formatter: DateFormatter = DateFormatter()
-//            formatter.dateFormat = "yyyy.MM.dd"
-//            
-//            if let unwrapStartdate = savedStartdate {
-//                let displayStartDate = formatter.string(from: unwrapStartdate as Date)
-//                startDate.text = displayStartDate
-//            }
-//
-//            if let unwrapEnddate = savedEnddate {
-//                let displayEndDate = formatter.string(from: unwrapEnddate as Date)
-//                endDate.text = displayEndDate }
+            if let unwrapStartdate = savedStartdate {
+                let displayStartDate = formatter.string(from: unwrapStartdate as Date)
+                startDate.text = displayStartDate
+            }
 
-            
+            if let unwrapEnddate = savedEnddate {
+                let displayEndDate = formatter.string(from: unwrapEnddate as Date)
+                endDate.text = displayEndDate }
         }
         // Do any additional setup after loading the view.
     }
