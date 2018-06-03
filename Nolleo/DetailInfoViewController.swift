@@ -9,11 +9,17 @@
 import UIKit
 import CoreData
 
-class DetailInfoViewController: UIViewController {
+class DetailInfoViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    @IBOutlet var tableView: UITableView!
     @IBOutlet var textTitle: UILabel!
     @IBOutlet var textArea: UILabel!
     @IBOutlet var startDate: UILabel!
     @IBOutlet var endDate: UILabel!
+    
+    var dayInterval: Double?
+    var daysInterval: Int?
+    
+    var count: Int = 1
     
     var basic: NSManagedObject?
     
@@ -36,6 +42,11 @@ class DetailInfoViewController: UIViewController {
             if let unwrapEnddate = savedEnddate {
                 let displayEndDate = formatter.string(from: unwrapEnddate as Date)
                 endDate.text = displayEndDate }
+            
+            dayInterval = savedEnddate!.timeIntervalSince(savedStartdate!)
+            daysInterval = Int(dayInterval! / 86400)
+            
+//            textTitle.text = "\(daysInterval!)"
         }
         // Do any additional setup after loading the view.
     }
@@ -43,20 +54,58 @@ class DetailInfoViewController: UIViewController {
     @IBAction func backPressed(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    //--------table view 관련--------//
+    func numberOfSections (in tableView: UITableView) -> Int {
+        return 1
     }
-    */
+
+
+    func tableView(_ tableView:UITableView, numberOfRowsInSection section: Int)->Int {
+        return daysInterval!+1
+    }
+
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // 커스텀 셀 사용함을 명시
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Mypage Detail Info Cell", for: indexPath) as! DetailInfoTableCell
+
+        var dayCountDisplay: String = ""
+        var dayDisplay: String = ""
+        var costDisplay: String = ""
+    
+        let formatter: DateFormatter = DateFormatter()
+        formatter.dateFormat = "MM.dd"
+
+        dayCountDisplay = "Day \(count)"
+        dayDisplay = "00.00"
+        costDisplay = "0 KRW"
+        
+        cell.labelDayCount?.text = dayCountDisplay
+        cell.labelDay?.text = dayDisplay
+        cell.labelCost?.text = costDisplay
+        if(count <= daysInterval!) {count += 1}
+
+        return cell
+    }
+
+
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//            // Core Data 내의 해당 자료 삭제
+//            let context = getContext()
+//            context.delete(BasicInfo[indexPath.row])
+//            do {
+//                try context.save()
+//                print("deleted!")
+//            } catch let error as NSError {
+//                print("Could not delete \(error), \(error.userInfo)") }
+//            // 배열에서 해당 자료 삭제
+//            BasicInfo.remove(at: indexPath.row)
+//            // 테이블뷰 Cell 삭제
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+//        }
+//    }
+
 
 }

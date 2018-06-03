@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD3AD01920C3DF1800813930 /* MainpageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AD01820C3DF1800813930 /* MainpageViewController.swift */; };
 		CD44FC6D20BBBE570034B048 /* icon_others.png in Resources */ = {isa = PBXBuildFile; fileRef = CD44FC6C20BBBE560034B048 /* icon_others.png */; };
 		CD44FC6F20BBCB410034B048 /* BasicInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD44FC6E20BBCB410034B048 /* BasicInfoTableViewCell.swift */; };
 		CD44FC7120BBDFEC0034B048 /* DetailInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD44FC7020BBDFEC0034B048 /* DetailInfoViewController.swift */; };
@@ -23,9 +24,11 @@
 		CD7D140320BB0F7C005A8AAC /* icon_main.ico in Resources */ = {isa = PBXBuildFile; fileRef = CD7D140120BB0F7B005A8AAC /* icon_main.ico */; };
 		CD7D140420BB0F7C005A8AAC /* icon_mypage.png in Resources */ = {isa = PBXBuildFile; fileRef = CD7D140220BB0F7C005A8AAC /* icon_mypage.png */; };
 		CD7D140620BB16CE005A8AAC /* BasicInfoSaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7D140520BB16CE005A8AAC /* BasicInfoSaveViewController.swift */; };
+		CDAFB0F020C3B1090070B1E5 /* DetailInfoTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAFB0EF20C3B1090070B1E5 /* DetailInfoTableCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CD3AD01820C3DF1800813930 /* MainpageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainpageViewController.swift; sourceTree = "<group>"; };
 		CD44FC6C20BBBE560034B048 /* icon_others.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_others.png; sourceTree = "<group>"; };
 		CD44FC6E20BBCB410034B048 /* BasicInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicInfoTableViewCell.swift; sourceTree = "<group>"; };
 		CD44FC7020BBDFEC0034B048 /* DetailInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoViewController.swift; sourceTree = "<group>"; };
@@ -44,6 +47,7 @@
 		CD7D140120BB0F7B005A8AAC /* icon_main.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = icon_main.ico; sourceTree = "<group>"; };
 		CD7D140220BB0F7C005A8AAC /* icon_mypage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_mypage.png; sourceTree = "<group>"; };
 		CD7D140520BB16CE005A8AAC /* BasicInfoSaveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicInfoSaveViewController.swift; sourceTree = "<group>"; };
+		CDAFB0EF20C3B1090070B1E5 /* DetailInfoTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoTableCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +97,8 @@
 				CD7D140520BB16CE005A8AAC /* BasicInfoSaveViewController.swift */,
 				CD44FC6E20BBCB410034B048 /* BasicInfoTableViewCell.swift */,
 				CD44FC7020BBDFEC0034B048 /* DetailInfoViewController.swift */,
+				CDAFB0EF20C3B1090070B1E5 /* DetailInfoTableCell.swift */,
+				CD3AD01820C3DF1800813930 /* MainpageViewController.swift */,
 			);
 			path = Nolleo;
 			sourceTree = "<group>";
@@ -176,12 +182,14 @@
 				CD44FC6F20BBCB410034B048 /* BasicInfoTableViewCell.swift in Sources */,
 				CD7D13FC20BAFEAE005A8AAC /* MypageTableViewController.swift in Sources */,
 				CD7D13F620B95876005A8AAC /* CreateViewController.swift in Sources */,
+				CD3AD01920C3DF1800813930 /* MainpageViewController.swift in Sources */,
 				CD44FC7120BBDFEC0034B048 /* DetailInfoViewController.swift in Sources */,
 				CD7D13E920B95403005A8AAC /* Nolleo.xcdatamodeld in Sources */,
 				CD7D13E320B95403005A8AAC /* LoginViewController.swift in Sources */,
 				CD7D13FA20BAFE8C005A8AAC /* MainTableViewController.swift in Sources */,
 				CD7D13E120B95403005A8AAC /* AppDelegate.swift in Sources */,
 				CD7D140620BB16CE005A8AAC /* BasicInfoSaveViewController.swift in Sources */,
+				CDAFB0F020C3B1090070B1E5 /* DetailInfoTableCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
