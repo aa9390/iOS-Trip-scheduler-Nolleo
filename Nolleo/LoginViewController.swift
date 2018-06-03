@@ -35,7 +35,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
         self.labelLoginStatus.text = " "
         
-        let urlString: String = "http://localhost:8888/nolleo/login/loginUser.php"
+//        let urlString: String = "http://localhost:8888/nolleo/login/loginUser.php"
+        let urlString: String = "http://condi.swu.ac.kr/student/T03nolleo/loginUser.php"
         guard let requestURL = URL(string: urlString) else {
             return
         }
@@ -75,12 +76,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 // 로그인에 성공했을 경우
                 // Main 화면으로 이동
                 if success == "YES" {
-                    if let name = jsonData["name"] as! String! {
+//                    if let name = jsonData["name"] as! String! {
                         DispatchQueue.main.async {
-                            self.labelLoginStatus.text = name + "님 안녕하세요?"
+//                            self.labelLoginStatus.text = name + "님 안녕하세요?"
                             self.performSegue(withIdentifier: "toLoginSuccess", sender: self)
                         }
-                    }
+//                    }
                 } else {
                     if let errMessage = jsonData["error"] as! String! {
                         DispatchQueue.main.async {

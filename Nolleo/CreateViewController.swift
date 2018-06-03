@@ -79,7 +79,8 @@ class CreateViewController: UIViewController, UITextFieldDelegate {
         birth = formatter.string(from: pickerCreateDate.date)
         
         // insertUser.php의 Uri String 선언
-        let urlString: String = "http://localhost:8888/nolleo/login/insertUser.php"
+//        let urlString: String = "http://localhost:8888/nolleo/login/insertUser.php"
+        let urlString: String = "http://condi.swu.ac.kr/student/T03nolleo/insertUser.php"
 
         // guard let? null이면 else부분 실행.
         // null이 아니면 참인 부분 실행.

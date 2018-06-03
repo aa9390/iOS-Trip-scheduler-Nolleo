@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD19075F20C3E98B0095737D /* MainpageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD19075E20C3E98B0095737D /* MainpageTableViewCell.swift */; };
 		CD3AD01920C3DF1800813930 /* MainpageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AD01820C3DF1800813930 /* MainpageViewController.swift */; };
 		CD44FC6D20BBBE570034B048 /* icon_others.png in Resources */ = {isa = PBXBuildFile; fileRef = CD44FC6C20BBBE560034B048 /* icon_others.png */; };
 		CD44FC6F20BBCB410034B048 /* BasicInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD44FC6E20BBCB410034B048 /* BasicInfoTableViewCell.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CD19075E20C3E98B0095737D /* MainpageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainpageTableViewCell.swift; sourceTree = "<group>"; };
 		CD3AD01820C3DF1800813930 /* MainpageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainpageViewController.swift; sourceTree = "<group>"; };
 		CD44FC6C20BBBE560034B048 /* icon_others.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_others.png; sourceTree = "<group>"; };
 		CD44FC6E20BBCB410034B048 /* BasicInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicInfoTableViewCell.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				CD44FC7020BBDFEC0034B048 /* DetailInfoViewController.swift */,
 				CDAFB0EF20C3B1090070B1E5 /* DetailInfoTableCell.swift */,
 				CD3AD01820C3DF1800813930 /* MainpageViewController.swift */,
+				CD19075E20C3E98B0095737D /* MainpageTableViewCell.swift */,
 			);
 			path = Nolleo;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 				CD44FC7120BBDFEC0034B048 /* DetailInfoViewController.swift in Sources */,
 				CD7D13E920B95403005A8AAC /* Nolleo.xcdatamodeld in Sources */,
 				CD7D13E320B95403005A8AAC /* LoginViewController.swift in Sources */,
+				CD19075F20C3E98B0095737D /* MainpageTableViewCell.swift in Sources */,
 				CD7D13FA20BAFE8C005A8AAC /* MainTableViewController.swift in Sources */,
 				CD7D13E120B95403005A8AAC /* AppDelegate.swift in Sources */,
 				CD7D140620BB16CE005A8AAC /* BasicInfoSaveViewController.swift in Sources */,

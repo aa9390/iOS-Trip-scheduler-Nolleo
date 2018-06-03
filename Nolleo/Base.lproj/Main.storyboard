@@ -520,7 +520,7 @@
                                     <navigationItem title="메인" id="sRl-7A-K90">
                                         <barButtonItem key="leftBarButtonItem" title="logout" id="tgX-7f-I5V">
                                             <connections>
-                                                <action selector="buttonLogout:" destination="pmS-Ii-SrX" id="5XB-CO-gda"/>
+                                                <action selector="backPressed:" destination="pmS-Ii-SrX" id="670-X3-qGg"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="GgR-wB-R0Z"/>
