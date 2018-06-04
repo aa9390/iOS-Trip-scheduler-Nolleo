@@ -8,18 +8,10 @@
 
 import UIKit
 
-class MainpageViewController: UIViewController {
-    
+class MainpageViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet var tableView: UITableView!
     
-    class BasicInfoData: NSObject {
-        var index: String = ""
-        var title: String = ""
-        var user_id: String = ""
-        var area: String = ""
-        var start_date: String = ""
-        var end_date: String = ""
-    }
+    var fetchedArray: [BasicInfoData] = Array()
 
     @IBAction func backPressed(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
@@ -27,12 +19,10 @@ class MainpageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // 테이블 뷰 높이 지정
-//        tableView.rowHeight = 80
+//         테이블 뷰 높이 지정
+        tableView.rowHeight = 68
     }
     
-    var fetchedArray: [BasicInfoData] = Array()
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         fetchedArray = [] // 배열을 초기화하고 서버에서 자료를 다시 가져옴
@@ -41,9 +31,11 @@ class MainpageViewController: UIViewController {
         
     }
     
+    // 서버에서 데이터 로드
     func downloadDataFromServer() -> Void {
 //        let urlString: String = "http://localhost:8888/favorite/favoriteTable.php"
         let urlString: String = "http://condi.swu.ac.kr/student/T03nolleo/selectBasicInfo.php"
+        
         guard let requestURL = URL(string: urlString) else { return }
         let request = URLRequest(url: requestURL)
         let session = URLSession.shared
@@ -73,7 +65,7 @@ class MainpageViewController: UIViewController {
         task.resume()
     }
     
-    
+    // Table view 관련
     func numberOfSections (in tableView: UITableView) -> Int {
         return 1
     }
@@ -83,11 +75,38 @@ class MainpageViewController: UIViewController {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Favorite Cell", for: indexPath)
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Mainpage Basic Info Cell", for: indexPath) as! MainpageTableViewCell
+        
         let item = fetchedArray[indexPath.row]
-//        cell.textLabel?.text = item.name
-//        cell.detailTextLabel?.text = item.date // ----> Right Detail 설정 return cell
+        
+        cell.labelId?.text = item.user_id
+        cell.labelTripTitle?.text = item.title
+        cell.labelTripArea?.text = item.area
+        cell.labelStartDate?.text = item.start_date
+        cell.labelEndDate?.text = item.end_date
         
         return cell
+    }
+    
+    // 로그아웃
+    @IBAction func logoutPressed(_ sender: Any) {
+        let alert = UIAlertController(title:"로그아웃 하시겠습니까?",message: "",preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: {
+//            action in let urlString: String = "http://localhost:8888/login/logout.php"
+            action in let urlString: String = "http://condi.swu.ac.kr/student/T03nolleo/logout.php"
+            guard let requestURL = URL(string: urlString) else { return }
+            var request = URLRequest(url: requestURL)
+            request.httpMethod = "POST"
+            let session = URLSession.shared
+            let task = session.dataTask(with: request) { (responseData, response, responseError) in
+                guard responseError == nil else { return } }
+            task.resume()
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let loginView = storyboard.instantiateViewController(withIdentifier: "LoginView")
+            self.present(loginView, animated: true, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+        self.present(alert, animated: true)
     }
 }

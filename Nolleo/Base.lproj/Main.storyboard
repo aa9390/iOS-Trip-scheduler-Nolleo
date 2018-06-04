@@ -286,11 +286,7 @@
                                                 <action selector="backPressed:" destination="Nix-cA-AVV" id="Q0h-Za-F9V"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="play" id="Cpu-mF-nbX">
-                                            <connections>
-                                                <segue destination="N6O-FM-Ony" kind="showDetail" id="wvq-PL-MjF"/>
-                                            </connections>
-                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="more" id="Cpu-mF-nbX"/>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -390,6 +386,7 @@
                                                     <outlet property="labelCost" destination="E7f-nL-Jg8" id="pH6-p9-daJ"/>
                                                     <outlet property="labelDay" destination="jBE-Pa-XSU" id="qHF-Sn-JLF"/>
                                                     <outlet property="labelDayCount" destination="omU-k8-koM" id="9Si-r8-OWM"/>
+                                                    <segue destination="N6O-FM-Ony" kind="show" id="QJ6-vO-LCg"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
@@ -434,17 +431,16 @@
         <!--Tab Bar Controller-->
         <scene sceneID="Op6-eM-6AW">
             <objects>
-                <tabBarController id="brC-O6-Z6d" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="t06-7R-Bzr">
+                <tabBarController extendedLayoutIncludesOpaqueBars="YES" id="brC-O6-Z6d" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" semanticContentAttribute="playback" insetsLayoutMarginsFromSafeArea="NO" id="t06-7R-Bzr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.47849767510000002" green="0.80107868019999995" blue="0.65547810689999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="selectedImageTintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="P5g-gz-3sc" kind="relationship" relationship="viewControllers" id="Kjn-ql-JYp"/>
                         <segue destination="pmS-Ii-SrX" kind="relationship" relationship="viewControllers" id="E1T-Jg-wuu"/>
+                        <segue destination="P5g-gz-3sc" kind="relationship" relationship="viewControllers" id="Kjn-ql-JYp"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qn6-Ys-MhN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -460,15 +456,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="w8L-Rj-xU2">
-                                <rect key="frame" x="16" y="92" width="343" height="509"/>
+                                <rect key="frame" x="16" y="85" width="343" height="516"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="66" id="Yhq-GW-bhV" customClass="MainpageTableViewCell" customModule="Nolleo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="343" height="66"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Mainpage Basic Info Cell" rowHeight="68" id="Yhq-GW-bhV" customClass="MainpageTableViewCell" customModule="Nolleo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="343" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Yhq-GW-bhV" id="idJ-qs-OKK">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="65.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="67.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="국내" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EXb-g8-xQh">
@@ -533,6 +529,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="pmS-Ii-SrX" id="SP1-Ja-2BH"/>
+                                    <outlet property="delegate" destination="pmS-Ii-SrX" id="ENE-ma-iSl"/>
+                                </connections>
                             </tableView>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wig-28-DWf">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -541,7 +541,7 @@
                                     <navigationItem title="메인" id="sRl-7A-K90">
                                         <barButtonItem key="leftBarButtonItem" title="logout" id="tgX-7f-I5V">
                                             <connections>
-                                                <action selector="backPressed:" destination="pmS-Ii-SrX" id="670-X3-qGg"/>
+                                                <action selector="logoutPressed:" destination="pmS-Ii-SrX" id="Hp6-C8-TNR"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="GgR-wB-R0Z"/>
@@ -576,7 +576,7 @@
                                 <navigationItem title="마이페이지" id="zaM-jN-Egf">
                                     <barButtonItem key="leftBarButtonItem" title="logout" id="cCe-o2-6yQ">
                                         <connections>
-                                            <action selector="backPressed:" destination="P5g-gz-3sc" id="mBD-9R-VOl"/>
+                                            <action selector="logoutPressed:" destination="P5g-gz-3sc" id="YWo-li-fNg"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem key="rightBarButtonItem" systemItem="add" id="I2T-ec-E2y">
@@ -789,6 +789,11 @@
                                                 <action selector="backPressed:" destination="N6O-FM-Ony" id="FUj-Cm-dDf"/>
                                             </connections>
                                         </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Z5k-g1-p0B">
+                                            <connections>
+                                                <segue destination="cMG-dR-3Yg" kind="show" id="pjo-8y-krb"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -906,7 +911,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NPd-D7-Vmm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2789.5999999999999" y="841.52923538230891"/>
+            <point key="canvasLocation" x="2865" y="842"/>
         </scene>
         <!--Detail Info View Controller-->
         <scene sceneID="WMZ-Un-a3N">
@@ -1012,7 +1017,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aix-WC-jGU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3456.8000000000002" y="841.52923538230891"/>
+            <point key="canvasLocation" x="3614" y="842"/>
         </scene>
     </scenes>
     <resources>

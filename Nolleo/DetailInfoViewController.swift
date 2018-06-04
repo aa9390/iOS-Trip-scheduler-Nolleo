@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 
 class DetailInfoViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
     @IBOutlet var tableView: UITableView!
     @IBOutlet var textTitle: UILabel!
     @IBOutlet var textArea: UILabel!
