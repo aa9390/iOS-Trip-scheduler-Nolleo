@@ -27,6 +27,7 @@
 		CD7D140420BB0F7C005A8AAC /* icon_mypage.png in Resources */ = {isa = PBXBuildFile; fileRef = CD7D140220BB0F7C005A8AAC /* icon_mypage.png */; };
 		CD7D140620BB16CE005A8AAC /* BasicInfoSaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7D140520BB16CE005A8AAC /* BasicInfoSaveViewController.swift */; };
 		CDAFB0F020C3B1090070B1E5 /* DetailInfoTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAFB0EF20C3B1090070B1E5 /* DetailInfoTableCell.swift */; };
+		CDB1C38520C5612B0077FD0F /* DetailInfoDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB1C38420C5612B0077FD0F /* DetailInfoDayViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		CD7D140220BB0F7C005A8AAC /* icon_mypage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_mypage.png; sourceTree = "<group>"; };
 		CD7D140520BB16CE005A8AAC /* BasicInfoSaveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicInfoSaveViewController.swift; sourceTree = "<group>"; };
 		CDAFB0EF20C3B1090070B1E5 /* DetailInfoTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoTableCell.swift; sourceTree = "<group>"; };
+		CDB1C38420C5612B0077FD0F /* DetailInfoDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoDayViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				CD3AD01820C3DF1800813930 /* MainpageViewController.swift */,
 				CD19075E20C3E98B0095737D /* MainpageTableViewCell.swift */,
 				CD19076020C54C890095737D /* BasicInfoData.swift */,
+				CDB1C38420C5612B0077FD0F /* DetailInfoDayViewController.swift */,
 			);
 			path = Nolleo;
 			sourceTree = "<group>";
@@ -185,6 +188,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDB1C38520C5612B0077FD0F /* DetailInfoDayViewController.swift in Sources */,
 				CD44FC6F20BBCB410034B048 /* BasicInfoTableViewCell.swift in Sources */,
 				CD7D13FC20BAFEAE005A8AAC /* MypageTableViewController.swift in Sources */,
 				CD7D13F620B95876005A8AAC /* CreateViewController.swift in Sources */,
