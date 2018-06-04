@@ -10,6 +10,12 @@ import UIKit
 
 class MainpageTableViewCell: UITableViewCell {
 
+    @IBOutlet var labelTripArea: UILabel!
+    @IBOutlet var labelTripTitle: UILabel!
+    @IBOutlet var labelStartDate: UILabel!
+    @IBOutlet var labelEndDate: UILabel!
+    @IBOutlet var labelId: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

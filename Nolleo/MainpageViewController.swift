@@ -9,49 +9,85 @@
 import UIKit
 
 class MainpageViewController: UIViewController {
+    
+    @IBOutlet var tableView: UITableView!
+    
+    class BasicInfoData: NSObject {
+        var index: String = ""
+        var title: String = ""
+        var user_id: String = ""
+        var area: String = ""
+        var start_date: String = ""
+        var end_date: String = ""
+    }
 
     @IBAction func backPressed(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
     
-//    @IBAction func buttonLogout(_ sender: UIBarButtonItem) {
-//        let alert = UIAlertController(title:"로그아웃 하시겠습니까?",message: "",preferredStyle: .alert)
-//        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in let urlString: String = "http://localhost:8888/nolleo/login/logoutUser.php"
-//            guard let requestURL = URL(string: urlString) else { return }
-//            var request = URLRequest(url: requestURL)
-//            request.httpMethod = "POST"
-//            let session = URLSession.shared
-//            let task = session.dataTask(with: request) { (responseData, response, responseError) in
-//                guard responseError == nil else { return } }
-//            task.resume()
-//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//            let loginView = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
-//            self.present(loginView, animated: true, completion: nil)
-//        }))
-//        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
-//        self.present(alert, animated: true)
-//    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        // 테이블 뷰 높이 지정
+//        tableView.rowHeight = 80
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    var fetchedArray: [BasicInfoData] = Array()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        fetchedArray = [] // 배열을 초기화하고 서버에서 자료를 다시 가져옴
+        // 서버에서 데이터 가져옴
+        self.downloadDataFromServer()
+        
     }
-    */
-
+    
+    func downloadDataFromServer() -> Void {
+//        let urlString: String = "http://localhost:8888/favorite/favoriteTable.php"
+        let urlString: String = "http://condi.swu.ac.kr/student/T03nolleo/selectBasicInfo.php"
+        guard let requestURL = URL(string: urlString) else { return }
+        let request = URLRequest(url: requestURL)
+        let session = URLSession.shared
+        let task = session.dataTask(with: request) { (responseData, response, responseError) in
+            guard responseError == nil else { print("Error: calling POST"); return; }
+            guard let receivedData = responseData else {
+                print("Error: not receiving Data"); return; }
+            
+            let response = response as! HTTPURLResponse
+            if !(200...299 ~= response.statusCode) { print("HTTP response Error!"); return }
+            do {
+                if let jsonData = try JSONSerialization.jsonObject (with: receivedData,
+                                                                    options:.allowFragments) as? [[String: Any]] {
+                    for i in 0...jsonData.count-1 {
+                        let newData: BasicInfoData = BasicInfoData()
+                        var jsonElement = jsonData[i]
+                        newData.index = jsonElement["index"] as! String
+                        newData.title = jsonElement["title"] as! String
+                        newData.user_id = jsonElement["user_id"] as! String
+                        newData.area = jsonElement["area"] as! String
+                        newData.start_date = jsonElement["start_date"] as! String
+                        newData.end_date = jsonElement["end_date"] as! String
+                        self.fetchedArray.append(newData)
+                    }
+                    DispatchQueue.main.async { self.tableView.reloadData() } }
+            } catch { print("Error:") } }
+        task.resume()
+    }
+    
+    
+    func numberOfSections (in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return fetchedArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Favorite Cell", for: indexPath)
+        let item = fetchedArray[indexPath.row]
+//        cell.textLabel?.text = item.name
+//        cell.detailTextLabel?.text = item.date // ----> Right Detail 설정 return cell
+        
+        return cell
+    }
 }
