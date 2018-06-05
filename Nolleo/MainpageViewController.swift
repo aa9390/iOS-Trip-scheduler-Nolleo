@@ -93,7 +93,7 @@ class MainpageViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBAction func logoutPressed(_ sender: Any) {
         let alert = UIAlertController(title:"로그아웃 하시겠습니까?",message: "",preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: {
-//            action in let urlString: String = "http://localhost:8888/login/logout.php"
+//            action in let urlString: String = "http://localhost:8888/login/logoutUser.php"
             action in let urlString: String = "http://condi.swu.ac.kr/student/T03nolleo/logout.php"
             guard let requestURL = URL(string: urlString) else { return }
             var request = URLRequest(url: requestURL)
