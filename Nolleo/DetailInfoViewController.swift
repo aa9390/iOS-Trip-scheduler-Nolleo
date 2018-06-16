@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import MapKit
 
 class DetailInfoViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -27,6 +28,9 @@ class DetailInfoViewController: UIViewController, UITableViewDataSource, UITable
     var count: Int = 1
     
     var basic: NSManagedObject?
+    
+    // Detail Info Day View Controller로 값을 넘길 때 필요
+    var deptVC: UITableViewController? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,14 +82,13 @@ class DetailInfoViewController: UIViewController, UITableViewDataSource, UITable
         let formatter: DateFormatter = DateFormatter()
         formatter.dateFormat = "MM.dd"
 
-        dayCountDisplay = "Day \(count)"
+        dayCountDisplay = "Day \(indexPath.row + 1)"
         dayDisplay = "장소"
         costDisplay = "0 KRW"
-        
+
         cell.labelDayCount?.text = dayCountDisplay
         cell.labelDay?.text = dayDisplay
         cell.labelCost?.text = costDisplay
-        if(count <= daysInterval!) {count += 1}
 
         return cell
     }
@@ -132,6 +135,7 @@ class DetailInfoViewController: UIViewController, UITableViewDataSource, UITable
                 if self.tableView.indexPathForSelectedRow != nil {
 //                    destination.daycount = dayCountDisplay
                     destination.daycount = "\(self.tableView.indexPathForSelectedRow!.row + 1)"
+                    destination.titleText = textTitle.text!
                 }
             }
         }

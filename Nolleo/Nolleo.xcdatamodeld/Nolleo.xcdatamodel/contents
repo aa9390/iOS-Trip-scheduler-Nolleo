@@ -7,14 +7,16 @@
         <attribute name="startdate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
-    <entity name="DetailInfo" representedClassName="DetailInfo" syncable="YES" codeGenerationType="class">
+    <entity name="Detail" representedClassName="Detail" syncable="YES" codeGenerationType="class">
+        <attribute name="cost" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="daycount" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="memo" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="place" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="time" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BasicInfo" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
         <element name="BasicInfo" positionX="-63" positionY="-18" width="128" height="120"/>
-        <element name="DetailInfo" positionX="-63" positionY="18" width="128" height="105"/>
+        <element name="Detail" positionX="117" positionY="-153" width="128" height="133"/>
     </elements>
 </model>

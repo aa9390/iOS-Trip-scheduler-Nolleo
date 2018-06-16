@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // 필요한 변수 추가
     var ID: String?
     var userName: String?
+    var title: String?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
