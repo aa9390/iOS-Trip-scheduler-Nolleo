@@ -112,6 +112,9 @@ class DetailInfoViewController: UIViewController, UITableViewDataSource, UITable
         formatter.dateFormat = "MM.dd"
         
         dayCountDisplay = "Day \(indexPath.row + 1)"
+        dayDisplay = ""
+        costDisplay = ""
+        cell.labelDayCount?.text = dayCountDisplay
         
         var count: Int = 0
         if(detailInfo.count >= 1) {
@@ -127,16 +130,16 @@ class DetailInfoViewController: UIViewController, UITableViewDataSource, UITable
                     
                     count = count + 1
                     print("count \(count)")
+                    
+                    cell.labelDay?.text = dayDisplay
+                    cell.labelCost?.text = costDisplay
                 }
                 else {
+                    cell.labelDay?.text = dayDisplay
+                    cell.labelCost?.text = costDisplay
                 }
             }
         }
-
-        cell.labelDayCount?.text = dayCountDisplay
-        cell.labelDay?.text = dayDisplay
-        cell.labelCost?.text = costDisplay
-
         return cell
     }
     
