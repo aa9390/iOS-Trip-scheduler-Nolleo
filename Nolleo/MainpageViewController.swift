@@ -13,10 +13,6 @@ class MainpageViewController: UIViewController, UITableViewDataSource, UITableVi
     
     var fetchedArray: [BasicInfoData] = Array()
 
-    @IBAction func backPressed(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 //         테이블 뷰 높이 지정
@@ -58,6 +54,7 @@ class MainpageViewController: UIViewController, UITableViewDataSource, UITableVi
                         newData.area = jsonElement["area"] as! String
                         newData.start_date = jsonElement["start_date"] as! String
                         newData.end_date = jsonElement["end_date"] as! String
+                        newData.recommend_reason = jsonElement["recommend_reason"] as! String
                         self.fetchedArray.append(newData)
                     }
                     DispatchQueue.main.async { self.tableView.reloadData() } }
@@ -108,5 +105,17 @@ class MainpageViewController: UIViewController, UITableViewDataSource, UITableVi
         }))
         alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
         self.present(alert, animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) { // Get the new view controller using segue.destinationViewController. // Pass the selected object to the new view controller.
+        if segue.identifier == "toSharedInfoView" {
+            if let destination = segue.destination as? SharedInfoViewController {
+                if let selectedIndex = self.tableView.indexPathsForSelectedRows?.first?.row {
+                    let data = fetchedArray[selectedIndex]
+                    destination.selectedData = data
+                }
+                
+            }
+        }
     }
 }

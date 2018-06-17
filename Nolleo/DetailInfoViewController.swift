@@ -17,6 +17,7 @@ class DetailInfoViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet var textArea: UILabel!
     @IBOutlet var startDate: UILabel!
     @IBOutlet var endDate: UILabel!
+    @IBOutlet var recommendReason: UITextView!
     
     var dayCountDisplay: String = ""
     var dayDisplay: String = ""
@@ -160,11 +161,13 @@ class DetailInfoViewController: UIViewController, UITableViewDataSource, UITable
         let area = textArea.text!
         let startdate = startDate.text!
         let enddate = endDate.text!
+        let recommendText = recommendReason.text!
         
         // DB에 insert
         var restString: String = "title=" + title + "&user_id=" + userID
         restString = restString + "&area=" + area
         restString = restString + "&start_date=" + startdate + "&end_date=" + enddate
+        restString = restString + "&recommend_reason=" + recommendText
         
         request.httpBody = restString.data(using: .utf8)
         let session2 = URLSession.shared

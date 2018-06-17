@@ -9,10 +9,11 @@
 import UIKit
 
 class BasicInfoData: NSObject {
-        var index: String = ""
-        var title: String = ""
-        var user_id: String = ""
-        var area: String = ""
-        var start_date: String = ""
-        var end_date: String = ""
+    var index: String = ""
+    var title: String = ""
+    var user_id: String = ""
+    var area: String = ""
+    var start_date: String = ""
+    var end_date: String = ""
+    var recommend_reason:String = ""
 }
