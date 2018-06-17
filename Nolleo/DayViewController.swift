@@ -11,25 +11,54 @@ import CoreData
 
 class DayViewController: UIViewController {
 
-    @IBOutlet var labelPlace: UILabel!
-    @IBOutlet var labelTime: UILabel!
-    @IBOutlet var labelMemo: UILabel!
-    @IBOutlet var labelCost: UILabel!
+
+    @IBOutlet var textPlace: UITextField!
+    @IBOutlet var textTime: UITextField!
+    @IBOutlet var textMemo: UITextField!
+    @IBOutlet var textCost: UITextField!
     @IBOutlet var labelDay: UILabel!
     @IBOutlet var labelDayCount: UILabel!
     
     var titleText: String!
     var daycount: String!
+    var dayCount: Int!
     
     // Detail Info Save View Controller의 값을 받기 위함.
     var detailInfo: [NSManagedObject] = []
+    var dayInfo: NSManagedObject!
+    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+//        let coco = appDelegate.dayCount!
         labelDayCount.text = "Day \(daycount!)"
         labelDay.text = titleText!
         // Do any additional setup after loading the view.
+        
+        let context = self.getContext()
+        let fetchRequestDetail = NSFetchRequest<NSManagedObject>(entityName: "Detail")
+        do {
+            detailInfo = try context.fetch(fetchRequestDetail)
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)") }
+        
+        var count: Int = 0
+        if(detailInfo.count >= 1) {
+        for i in 0...(detailInfo.count - 1) {
+            if (titleText == detailInfo[i].value(forKey: "title")as? String && daycount == detailInfo[i].value(forKey: "daycount")as? String)
+            {
+                dayInfo = detailInfo[i]
+                count = count + 1
+                print("count \(count)")
+                textPlace.text = dayInfo.value(forKey: "place")as? String
+                textTime.text = dayInfo.value(forKey: "time")as? String
+                textCost.text = dayInfo.value(forKey: "cost")as? String
+                textMemo.text = dayInfo.value(forKey: "memo")as? String
+            }
+        }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,6 +83,30 @@ class DayViewController: UIViewController {
             detailInfo = try context.fetch(fetchRequestDetail)
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)") }
+    }
+    
+    // 임시로 Detail로 엔티티 설정.
+    // Detail 엔티티에 데이터 저장
+    @IBAction func savePressed() {
+        let context = getContext()
+        let entity = NSEntityDescription.entity(forEntityName: "Detail", in: context)
+        
+        let object = NSManagedObject(entity: entity!, insertInto: context)
+        
+        object.setValue(daycount, forKey: "daycount")
+        object.setValue(titleText, forKey: "title")
+        object.setValue(textPlace.text, forKey: "place")
+        object.setValue(textTime.text, forKey: "time")
+        object.setValue(textMemo.text, forKey: "memo")
+        object.setValue(textCost.text, forKey: "cost")
+        do {
+            try context.save()
+            print("saved!")
+        } catch let error as NSError {
+            print("Could not save \(error), \(error.userInfo)") }
+        
+        // 현재의 View를 없애고 이전 화면으로 복귀
+        self.dismiss(animated: true, completion: nil)
     }
 
     /*

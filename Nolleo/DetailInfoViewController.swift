@@ -32,6 +32,9 @@ class DetailInfoViewController: UIViewController, UITableViewDataSource, UITable
     // Detail Info Day View Controller로 값을 넘길 때 필요
     var deptVC: UITableViewController? = nil
     
+    var detailInfo: [NSManagedObject] = []
+    var dayInfo: NSManagedObject!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -57,7 +60,33 @@ class DetailInfoViewController: UIViewController, UITableViewDataSource, UITable
             
 //            textTitle.text = "\(daysInterval!)"
         }
-        // Do any additional setup after loading the view.
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.title = self.textTitle.text!
+        
+        
+        let context = self.getContext()
+        let fetchRequestDetail = NSFetchRequest<NSManagedObject>(entityName: "Detail")
+        do {
+            detailInfo = try context.fetch(fetchRequestDetail)
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)") }
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let context = self.getContext()
+        let fetchRequestDetail = NSFetchRequest<NSManagedObject>(entityName: "Detail")
+        do {
+            detailInfo = try context.fetch(fetchRequestDetail)
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)") }
+        self.tableView.reloadData()
+    }
+    
+    func getContext () -> NSManagedObjectContext {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        return appDelegate.persistentContainer.viewContext
     }
 
     @IBAction func backPressed(_ sender: UIBarButtonItem) {
@@ -81,10 +110,28 @@ class DetailInfoViewController: UIViewController, UITableViewDataSource, UITable
 
         let formatter: DateFormatter = DateFormatter()
         formatter.dateFormat = "MM.dd"
-
+        
         dayCountDisplay = "Day \(indexPath.row + 1)"
-        dayDisplay = "장소"
-        costDisplay = "0 KRW"
+        
+        var count: Int = 0
+        if(detailInfo.count >= 1) {
+            for i in 0...(detailInfo.count - 1) {
+                if (textTitle.text == detailInfo[i].value(forKey: "title")as? String
+                    && "\(indexPath.row + 1)"
+                    == detailInfo[i].value(forKey: "daycount")as? String)
+                {
+                    dayInfo = detailInfo[i]
+                    
+                    dayDisplay = (dayInfo.value(forKey: "place")as? String)!
+                    costDisplay = (dayInfo.value(forKey: "cost")as? String)!
+                    
+                    count = count + 1
+                    print("count \(count)")
+                }
+                else {
+                }
+            }
+        }
 
         cell.labelDayCount?.text = dayCountDisplay
         cell.labelDay?.text = dayDisplay
@@ -128,14 +175,32 @@ class DetailInfoViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     // 세부 페이지로 이동
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "toDetailDayView" {
+//            if let destination = segue.destination as? DetailInfoDayViewController {
+//
+//                if self.tableView.indexPathForSelectedRow != nil {
+////                    destination.daycount = dayCountDisplay
+//                    destination.daycount = "\(self.tableView.indexPathForSelectedRow!.row + 1)"
+//                    destination.titleText = textTitle.text!
+//                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//                    appDelegate.dayCount = self.tableView.indexPathForSelectedRow!.row + 1
+//                }
+//            }
+//        }
+//    }
+    
+    // 세부 페이지로 이동
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toDetailDayView" {
-            if let destination = segue.destination as? DetailInfoDayViewController {
+            if let destination = segue.destination as? DayViewController {
                 
                 if self.tableView.indexPathForSelectedRow != nil {
-//                    destination.daycount = dayCountDisplay
+                    //                    destination.daycount = dayCountDisplay
                     destination.daycount = "\(self.tableView.indexPathForSelectedRow!.row + 1)"
                     destination.titleText = textTitle.text!
+                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                    appDelegate.dayCount = self.tableView.indexPathForSelectedRow!.row + 1
                 }
             }
         }

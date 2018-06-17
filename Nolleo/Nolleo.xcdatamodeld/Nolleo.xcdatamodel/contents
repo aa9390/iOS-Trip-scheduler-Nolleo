@@ -6,6 +6,7 @@
         <attribute name="savedate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="startdate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="toDetail" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Detail" inverseName="tobasic" inverseEntity="Detail" syncable="YES"/>
     </entity>
     <entity name="Detail" representedClassName="Detail" syncable="YES" codeGenerationType="class">
         <attribute name="cost" optional="YES" attributeType="String" syncable="YES"/>
@@ -14,9 +15,10 @@
         <attribute name="place" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="time" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="tobasic" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BasicInfo" inverseName="toDetail" inverseEntity="BasicInfo" syncable="YES"/>
     </entity>
     <elements>
-        <element name="BasicInfo" positionX="-63" positionY="-18" width="128" height="120"/>
-        <element name="Detail" positionX="117" positionY="-153" width="128" height="133"/>
+        <element name="BasicInfo" positionX="-63" positionY="-18" width="128" height="135"/>
+        <element name="Detail" positionX="117" positionY="-153" width="128" height="150"/>
     </elements>
 </model>
