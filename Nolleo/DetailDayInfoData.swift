@@ -9,9 +9,9 @@
 import UIKit
 
 class DetailDayInfoData: NSObject {
-    var day_count: Int = 0
+    var day_count: String = ""
     var place: String = ""
-    var cost: Int = 0
+    var cost: String = ""
     var detail_user_id: String = ""
     var detail_title: String = ""
 }

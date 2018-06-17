@@ -272,7 +272,6 @@
         <!--Detail Info View Controller-->
         <scene sceneID="VRm-cY-i92">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OtV-5c-Rn4" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="Nix-cA-AVV" customClass="DetailInfoViewController" customModule="Nolleo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mCe-Wf-Vkp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -433,6 +432,7 @@
                         <outlet property="textTitle" destination="Ml8-ge-a3a" id="HHo-lG-abO"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OtV-5c-Rn4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2085.5999999999999" y="900.00000000000011"/>
         </scene>
@@ -649,7 +649,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="llF-rH-50S">
-                                <rect key="frame" x="20" y="314" width="329" height="221"/>
+                                <rect key="frame" x="20" y="314" width="329" height="163"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -690,6 +690,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="wEB-wI-vsT" id="UTt-zP-bF4"/>
+                                    <outlet property="delegate" destination="wEB-wI-vsT" id="xIZ-7H-7hK"/>
+                                </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Abq-Wp-2XM">
                                 <rect key="frame" x="15" y="9" width="34" height="30"/>
@@ -716,6 +720,7 @@
                         <outlet property="labelStartDate" destination="d8O-OT-go0" id="1eX-kT-Oyt"/>
                         <outlet property="labelTitle" destination="RT1-0l-7tY" id="8Nl-t0-rzw"/>
                         <outlet property="labelUserid" destination="0gm-Sr-GOe" id="b6m-H2-C1L"/>
+                        <outlet property="tableView" destination="llF-rH-50S" id="Q19-ST-kZ1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3df-H5-Q90" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -936,7 +941,6 @@
         <!--Detail Info Day View Controller-->
         <scene sceneID="jzz-wj-izN">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NPd-D7-Vmm" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="N6O-FM-Ony" customClass="DetailInfoDayViewController" customModule="Nolleo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WOA-cx-qSP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -1113,13 +1117,13 @@
                         <outlet property="tableView" destination="0ln-ih-151" id="hAS-Wo-Ni6"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NPd-D7-Vmm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2833" y="71"/>
         </scene>
         <!--Detail Info Save View Controller-->
         <scene sceneID="WMZ-Un-a3N">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Aix-WC-jGU" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="cMG-dR-3Yg" customClass="DetailInfoSaveViewController" customModule="Nolleo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="D5m-Vw-jLI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
@@ -1265,6 +1269,7 @@
                         <outlet property="textPlace" destination="Ih8-hM-ene" id="sZ0-pt-OIw"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Aix-WC-jGU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3599" y="-181"/>
         </scene>

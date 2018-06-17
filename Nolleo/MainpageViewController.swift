@@ -43,8 +43,7 @@ class MainpageViewController: UIViewController, UITableViewDataSource, UITableVi
             let response = response as! HTTPURLResponse
             if !(200...299 ~= response.statusCode) { print("HTTP response Error!"); return }
             do {
-                if let jsonData = try JSONSerialization.jsonObject (with: receivedData,
-                                                                    options:.allowFragments) as? [[String: Any]] {
+                if let jsonData = try JSONSerialization.jsonObject (with: receivedData,options:.allowFragments) as? [[String: Any]] {
                     for i in 0...jsonData.count-1 {
                         let newData: BasicInfoData = BasicInfoData()
                         var jsonElement = jsonData[i]

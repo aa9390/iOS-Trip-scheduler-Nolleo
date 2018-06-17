@@ -8,10 +8,11 @@
 
 import UIKit
 
-class SharedInfoViewController: UIViewController {
+class SharedInfoViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var fetchedArray: [BasicInfoData] = Array()
+    var fetchedArray: [DetailDayInfoData] = Array()
 
+    @IBOutlet var tableView: UITableView!
     @IBOutlet var labelTitle: UILabel!
     @IBOutlet var labelArea: UILabel!
     @IBOutlet var labelStartDate: UILabel!
@@ -27,56 +28,80 @@ class SharedInfoViewController: UIViewController {
         
         guard let sharedData = selectedData else { return }
 
-        // Do any additional setup after loading the view.
         labelTitle.text = sharedData.title
         labelArea.text = sharedData.area
         labelUserid.text = sharedData.user_id
         labelStartDate.text = sharedData.start_date
         labelRecommend.text = sharedData.recommend_reason
         labelEndDate.text = sharedData.end_date
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        fetchedArray = [] // 배열을 초기화하고 서버에서 자료를 다시 가져옴
-        // 서버에서 데이터 가져옴
+        fetchedArray = []
         self.downloadDataFromServer()
         
     }
     
+    // Table view 관련
+    func numberOfSections (in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return fetchedArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Mypage Detail Info Cell", for: indexPath) as! DetailInfoTableCell
+        
+        let item = fetchedArray[indexPath.row]
+        
+        cell.labelDayCount.text = "\(item.day_count)"
+        cell.labelCost.text = "\(item.cost)"
+        cell.labelDay.text = item.place
+        
+        return cell
+    }
+    
     // 서버에서 데이터 로드
+    // detail만 하면 될듯
     func downloadDataFromServer() -> Void {
         //        let urlString: String = "http://localhost:8888/favorite/favoriteTable.php"
-        let urlString: String = "http://condi.swu.ac.kr/student/T03nolleo/selectBasicInfo.php"
+        let urlString: String = "http://condi.swu.ac.kr/student/T03nolleo/selectDetailInfo.php"
         
         guard let requestURL = URL(string: urlString) else { return }
-        let request = URLRequest(url: requestURL)
+        var request = URLRequest(url: requestURL)
         let session = URLSession.shared
         let task = session.dataTask(with: request) { (responseData, response, responseError) in
             guard responseError == nil else { print("Error: calling POST"); return; }
             guard let receivedData = responseData else {
                 print("Error: not receiving Data"); return; }
             
+            request.httpMethod = "POST"
+            
             let response = response as! HTTPURLResponse
             if !(200...299 ~= response.statusCode) { print("HTTP response Error!"); return }
             do {
                 if let jsonData = try JSONSerialization.jsonObject (with: receivedData,options:.allowFragments) as? [[String: Any]] {
                     for i in 0...jsonData.count-1 {
-                        let newData: BasicInfoData = BasicInfoData()
+                        let newData: DetailDayInfoData = DetailDayInfoData()
                         var jsonElement = jsonData[i]
-                        newData.index = jsonElement["index"] as! String
-                        newData.title = jsonElement["title"] as! String
-                        newData.user_id = jsonElement["user_id"] as! String
-                        newData.area = jsonElement["area"] as! String
-                        newData.start_date = jsonElement["start_date"] as! String
-                        newData.end_date = jsonElement["end_date"] as! String
-                        newData.recommend_reason = jsonElement["recommend_reason"] as! String
+                        newData.day_count = jsonElement["day_count"] as! String
+                        newData.place = jsonElement["place"] as! String
+                        newData.cost = jsonElement["cost"] as! String
+                        newData.detail_user_id = jsonElement["detail_user_id"] as! String
+                        newData.detail_title = jsonElement["detail_title"] as! String
+                    
                         self.fetchedArray.append(newData)
                     }
-//                    DispatchQueue.main.async { self.tableView.reloadData() }
+                    DispatchQueue.main.async { self.tableView.reloadData() }
+//                    print("ddfsfsdf : \(fetchedArray[0].place)")
                     
                 }
-            } catch { print("Error:") } }
+            } catch { print("Error shared:") } }
         task.resume()
     }
 
