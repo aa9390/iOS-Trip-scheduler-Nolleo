@@ -18,17 +18,16 @@ class DetailInfoViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet var startDate: UILabel!
     @IBOutlet var endDate: UILabel!
     @IBOutlet var recommendReason: UITextView!
+    @IBOutlet var labelTotalCost: UILabel!
     
     var dayCountDisplay: String = ""
     var dayDisplay: String = ""
     var costDisplay: String = ""
-    
     var dayInterval: Double?
     var daysInterval: Int?
-    
     var count: Int = 1
-    
     var basic: NSManagedObject?
+    var total: Int = 0
     
     // Detail Info Day View Controller로 값을 넘길 때 필요
     var deptVC: UITableViewController? = nil
@@ -71,6 +70,8 @@ class DetailInfoViewController: UIViewController, UITableViewDataSource, UITable
             detailInfo = try context.fetch(fetchRequestDetail)
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)") }
+        
+//        labelTotalCost.text = "\(total)"
         
     }
     
@@ -132,6 +133,9 @@ class DetailInfoViewController: UIViewController, UITableViewDataSource, UITable
                     count = count + 1
                     print("count \(count)")
                     
+                    // 셀을 하나씩 불러올 때마다 total에 값 더함.
+//                    total = total + Int(costDisplay)!
+                    
                     cell.labelDay?.text = dayDisplay
                     cell.labelCost?.text = costDisplay
                 }
@@ -162,6 +166,7 @@ class DetailInfoViewController: UIViewController, UITableViewDataSource, UITable
         let startdate = startDate.text!
         let enddate = endDate.text!
         let recommendText = recommendReason.text!
+        
         
         // DB에 insert
         var restString: String = "title=" + title + "&user_id=" + userID

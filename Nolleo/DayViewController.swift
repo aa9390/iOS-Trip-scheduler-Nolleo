@@ -8,16 +8,19 @@
 
 import UIKit
 import CoreData
+import MapKit
+import CoreLocation
 
 class DayViewController: UIViewController {
 
 
+    @IBOutlet var mapView: MKMapView!
     @IBOutlet var textPlace: UITextField!
-    @IBOutlet var textTime: UITextField!
-    @IBOutlet var textMemo: UITextField!
     @IBOutlet var textCost: UITextField!
     @IBOutlet var labelDay: UILabel!
     @IBOutlet var labelDayCount: UILabel!
+    @IBOutlet var textMemo: UITextView!
+    @IBOutlet var textTime: UITextField!
     
     var titleText: String!
     var daycount: String!
@@ -31,7 +34,7 @@ class DayViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
 //        let coco = appDelegate.dayCount!
         labelDayCount.text = "Day \(daycount!)"
         labelDay.text = titleText!
@@ -60,6 +63,13 @@ class DayViewController: UIViewController {
         }
         }
     }
+//
+//    func revealRegionDetailsWithLongPressOnMap(sender: UILongPressGestureRecognizer) {
+//        if sender.state != UIGestureRecognizerState.began { return }
+//        let touchLocation = sender.location(in: mapView)
+//        let locationCoordinate = mapView.convert(touchLocation, toCoordinateFrom: mapView)
+//        print("Tapped at lat: \(locationCoordinate.latitude) long: \(locationCoordinate.longitude)")
+//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
