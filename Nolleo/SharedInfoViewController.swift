@@ -74,19 +74,13 @@ class SharedInfoViewController: UIViewController, UITableViewDataSource, UITable
         
         guard let requestURL = URL(string: urlString) else { return }
         var request = URLRequest(url: requestURL)
-        
-        request.httpMethod = "POST"
-        
-        // 변수 전달
-        // 안되면 지우기
-        let restString: String = "&title=" + labelTitle.text! + "&user_id=" + labelUserid.text!
-        request.httpBody = restString.data(using: .utf8)
-        
         let session = URLSession.shared
         let task = session.dataTask(with: request) { (responseData, response, responseError) in
             guard responseError == nil else { print("Error: calling POST"); return; }
             guard let receivedData = responseData else {
                 print("Error: not receiving Data"); return; }
+            
+            request.httpMethod = "POST"
             
             let response = response as! HTTPURLResponse
             if !(200...299 ~= response.statusCode) { print("HTTP response Error!"); return }
