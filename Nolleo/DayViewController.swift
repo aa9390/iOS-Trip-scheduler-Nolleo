@@ -16,7 +16,6 @@ class DayViewController: UIViewController {
     @IBOutlet var textTime: UITextField!
     @IBOutlet var textMemo: UITextField!
     @IBOutlet var textCost: UITextField!
-    @IBOutlet var labelDay: UILabel!
     @IBOutlet var labelDayCount: UILabel!
     
     var titleText: String!
@@ -34,7 +33,6 @@ class DayViewController: UIViewController {
 
 //        let coco = appDelegate.dayCount!
         labelDayCount.text = "Day \(daycount!)"
-        labelDay.text = titleText!
         // Do any additional setup after loading the view.
         
         let context = self.getContext()

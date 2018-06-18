@@ -29,6 +29,7 @@
 		CD9766CE20D55BED00C1B41E /* DetailDayInfoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9766CD20D55BED00C1B41E /* DetailDayInfoData.swift */; };
 		CD9766D020D5860D00C1B41E /* DayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9766CF20D5860D00C1B41E /* DayViewController.swift */; };
 		CD9766D220D6167B00C1B41E /* SharedInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9766D120D6167B00C1B41E /* SharedInfoViewController.swift */; };
+		CD9E399720D73F2600B0B0E8 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9E399620D73F2600B0B0E8 /* ShareViewController.swift */; };
 		CDAFB0F020C3B1090070B1E5 /* DetailInfoTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAFB0EF20C3B1090070B1E5 /* DetailInfoTableCell.swift */; };
 		CDB1C38520C5612B0077FD0F /* DetailInfoDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB1C38420C5612B0077FD0F /* DetailInfoDayViewController.swift */; };
 		CDE380AF20D50D1B009B9D5D /* DayInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE380AE20D50D1B009B9D5D /* DayInfoTableViewCell.swift */; };
@@ -60,6 +61,7 @@
 		CD9766CD20D55BED00C1B41E /* DetailDayInfoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDayInfoData.swift; sourceTree = "<group>"; };
 		CD9766CF20D5860D00C1B41E /* DayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayViewController.swift; sourceTree = "<group>"; };
 		CD9766D120D6167B00C1B41E /* SharedInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedInfoViewController.swift; sourceTree = "<group>"; };
+		CD9E399620D73F2600B0B0E8 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		CDAFB0EF20C3B1090070B1E5 /* DetailInfoTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoTableCell.swift; sourceTree = "<group>"; };
 		CDB1C38420C5612B0077FD0F /* DetailInfoDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoDayViewController.swift; sourceTree = "<group>"; };
 		CDE380AE20D50D1B009B9D5D /* DayInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayInfoTableViewCell.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				CD9766CD20D55BED00C1B41E /* DetailDayInfoData.swift */,
 				CD9766CF20D5860D00C1B41E /* DayViewController.swift */,
 				CD9766D120D6167B00C1B41E /* SharedInfoViewController.swift */,
+				CD9E399620D73F2600B0B0E8 /* ShareViewController.swift */,
 			);
 			path = Nolleo;
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 			files = (
 				CDB1C38520C5612B0077FD0F /* DetailInfoDayViewController.swift in Sources */,
 				CD44FC6F20BBCB410034B048 /* BasicInfoTableViewCell.swift in Sources */,
+				CD9E399720D73F2600B0B0E8 /* ShareViewController.swift in Sources */,
 				CDE380B120D51CB5009B9D5D /* DetailInfoSaveViewController.swift in Sources */,
 				CD7D13FC20BAFEAE005A8AAC /* MypageTableViewController.swift in Sources */,
 				CD9766CE20D55BED00C1B41E /* DetailDayInfoData.swift in Sources */,

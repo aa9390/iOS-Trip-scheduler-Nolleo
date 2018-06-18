@@ -17,7 +17,7 @@ class DetailInfoViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet var textArea: UILabel!
     @IBOutlet var startDate: UILabel!
     @IBOutlet var endDate: UILabel!
-    @IBOutlet var recommendReason: UITextView!
+//    @IBOutlet var recommendReason: UITextView!
     
     var dayCountDisplay: String = ""
     var dayDisplay: String = ""
@@ -146,39 +146,39 @@ class DetailInfoViewController: UIViewController, UITableViewDataSource, UITable
     
     // -------------------공유-------------------
     // 아직은 기본 정보만 공유되도록 구현.
-    @IBAction func shareButtonPressed() {
-        // 데이터베이스 insert
-//        let urlString: String = "http://localhost:8888/nolleo/insertBasicInfo.php"
-        let urlString: String = "http://condi.swu.ac.kr/student/T03nolleo/insertBasicInfo.php"
-        guard let requestURL = URL(string: urlString) else { return }
-        var request = URLRequest(url: requestURL)
-        request.httpMethod = "POST"
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        
-        // DB에 들어갈 변수 설정
-        guard let userID = appDelegate.ID else { return }
-        let title = textTitle.text!
-        let area = textArea.text!
-        let startdate = startDate.text!
-        let enddate = endDate.text!
-        let recommendText = recommendReason.text!
-        
-        // DB에 insert
-        var restString: String = "title=" + title + "&user_id=" + userID
-        restString = restString + "&area=" + area
-        restString = restString + "&start_date=" + startdate + "&end_date=" + enddate
-        restString = restString + "&recommend_reason=" + recommendText
-        
-        request.httpBody = restString.data(using: .utf8)
-        let session2 = URLSession.shared
-        let task2 = session2.dataTask(with: request) { (responseData, response, responseError) in
-            guard responseError == nil else { return }
-            guard let receivedData = responseData else { return }
-            if let utf8Data = String(data: receivedData, encoding: .utf8) { print(utf8Data) }
-        }
-        task2.resume()
-        _ = self.navigationController?.popViewController(animated: true)
-    }
+//    @IBAction func shareButtonPressed() {
+//        // 데이터베이스 insert
+////        let urlString: String = "http://localhost:8888/nolleo/insertBasicInfo.php"
+//        let urlString: String = "http://condi.swu.ac.kr/student/T03nolleo/insertBasicInfo.php"
+//        guard let requestURL = URL(string: urlString) else { return }
+//        var request = URLRequest(url: requestURL)
+//        request.httpMethod = "POST"
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//
+//        // DB에 들어갈 변수 설정
+//        guard let userID = appDelegate.ID else { return }
+//        let title = textTitle.text!
+//        let area = textArea.text!
+//        let startdate = startDate.text!
+//        let enddate = endDate.text!
+//        let recommendText = recommendReason.text!
+//
+//        // DB에 insert
+//        var restString: String = "title=" + title + "&user_id=" + userID
+//        restString = restString + "&area=" + area
+//        restString = restString + "&start_date=" + startdate + "&end_date=" + enddate
+//        restString = restString + "&recommend_reason=" + recommendText
+//
+//        request.httpBody = restString.data(using: .utf8)
+//        let session2 = URLSession.shared
+//        let task2 = session2.dataTask(with: request) { (responseData, response, responseError) in
+//            guard responseError == nil else { return }
+//            guard let receivedData = responseData else { return }
+//            if let utf8Data = String(data: receivedData, encoding: .utf8) { print(utf8Data) }
+//        }
+//        task2.resume()
+//        _ = self.navigationController?.popViewController(animated: true)
+//    }
     
     // 세부 페이지로 이동
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -196,8 +196,8 @@ class DetailInfoViewController: UIViewController, UITableViewDataSource, UITable
 //        }
 //    }
     
-    // 세부 페이지로 이동
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // 세부 페이지로 이동
         if segue.identifier == "toDetailDayView" {
             if let destination = segue.destination as? DayViewController {
                 
@@ -208,6 +208,15 @@ class DetailInfoViewController: UIViewController, UITableViewDataSource, UITable
                     let appDelegate = UIApplication.shared.delegate as! AppDelegate
                     appDelegate.dayCount = self.tableView.indexPathForSelectedRow!.row + 1
                 }
+            }
+        }
+        // 공유 페이지로 이동
+        if segue.identifier == "toShareView" {
+            if let destination = segue.destination as? ShareViewController {
+                    destination.titleText = textTitle.text!
+                    destination.areaText = textArea.text!
+                    destination.startText = startDate.text!
+                    destination.endText = endDate.text!
             }
         }
     }
