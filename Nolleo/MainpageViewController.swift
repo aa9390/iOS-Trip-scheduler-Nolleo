@@ -54,6 +54,8 @@ class MainpageViewController: UIViewController, UITableViewDataSource, UITableVi
                         newData.start_date = jsonElement["start_date"] as! String
                         newData.end_date = jsonElement["end_date"] as! String
                         newData.recommend_reason = jsonElement["recommend_reason"] as! String
+                        newData.recommend_cost = jsonElement["recommend_cost"]as! String
+                        newData.recommend_when_where = jsonElement["recommend_when_where"]as! String
                         self.fetchedArray.append(newData)
                     }
                     DispatchQueue.main.async { self.tableView.reloadData() } }

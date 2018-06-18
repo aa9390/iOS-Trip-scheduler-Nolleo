@@ -16,4 +16,6 @@ class BasicInfoData: NSObject {
     var start_date: String = ""
     var end_date: String = ""
     var recommend_reason:String = ""
+    var recommend_cost: String = ""
+    var recommend_when_where: String = ""
 }

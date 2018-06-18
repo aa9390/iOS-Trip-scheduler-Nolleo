@@ -35,6 +35,8 @@ class SharedInfoViewController: UIViewController {
         labelStartDate.text = sharedData.start_date
         labelRecommend.text = sharedData.recommend_reason
         labelEndDate.text = sharedData.end_date
+        labelWhenWhere.text = sharedData.recommend_when_where
+        labelCost.text = sharedData.recommend_cost
         
     }
     

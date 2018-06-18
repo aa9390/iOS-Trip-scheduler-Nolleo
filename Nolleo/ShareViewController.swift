@@ -139,7 +139,7 @@ class ShareViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         restString = restString + "&recommend_reason=" + recommendText
         restString = restString + "&recommend_when_where=" + recommendwhenwhere
         restString = restString + "&recommend_cost=" + recommendcost
-        restString = restString + "&recommend_img1=" + imageFileName
+        restString = restString + "&recommend_img=" + imageFileName
         
         request.httpBody = restString.data(using: .utf8)
         let session2 = URLSession.shared
