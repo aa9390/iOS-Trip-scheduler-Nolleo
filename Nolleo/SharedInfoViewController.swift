@@ -8,18 +8,19 @@
 
 import UIKit
 
-class SharedInfoViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class SharedInfoViewController: UIViewController {
     
     var fetchedArray: [DetailDayInfoData] = Array()
 
-    @IBOutlet var tableView: UITableView!
     @IBOutlet var labelTitle: UILabel!
     @IBOutlet var labelArea: UILabel!
     @IBOutlet var labelStartDate: UILabel!
     @IBOutlet var labelEndDate: UILabel!
     @IBOutlet var labelSavedDate: UILabel!
     @IBOutlet var labelUserid: UILabel!
-    @IBOutlet var labelRecommend: UITextView!
+    @IBOutlet var labelRecommend: UILabel!
+    @IBOutlet var labelWhenWhere: UILabel!
+    @IBOutlet var labelCost: UILabel!
     
     var selectedData: BasicInfoData?
     
@@ -42,28 +43,6 @@ class SharedInfoViewController: UIViewController, UITableViewDataSource, UITable
         fetchedArray = []
         self.downloadDataFromServer()
         
-    }
-    
-    // Table view 관련
-    func numberOfSections (in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fetchedArray.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Mypage Detail Info Cell", for: indexPath) as! DetailInfoTableCell
-        
-        let item = fetchedArray[indexPath.row]
-        
-        cell.labelDayCount.text = "\(item.day_count)"
-        cell.labelCost.text = "\(item.cost)"
-        cell.labelDay.text = item.place
-        
-        return cell
     }
     
     // 서버에서 데이터 로드
@@ -97,7 +76,6 @@ class SharedInfoViewController: UIViewController, UITableViewDataSource, UITable
                     
                         self.fetchedArray.append(newData)
                     }
-                    DispatchQueue.main.async { self.tableView.reloadData() }
 //                    print("ddfsfsdf : \(fetchedArray[0].place)")
                     
                 }
