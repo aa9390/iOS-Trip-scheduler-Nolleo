@@ -60,7 +60,6 @@ class DetailInfoViewController: UIViewController, UITableViewDataSource, UITable
             dayInterval = savedEnddate!.timeIntervalSince(savedStartdate!)
             daysInterval = Int(dayInterval! / 86400)
             
-//            textTitle.text = "\(daysInterval!)"
         }
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.title = self.textTitle.text!
@@ -73,6 +72,31 @@ class DetailInfoViewController: UIViewController, UITableViewDataSource, UITable
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)") }
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let context = self.getContext()
+        let fetchRequestDetail = NSFetchRequest<NSManagedObject>(entityName: "Detail")
+        do {
+            detailInfo = try context.fetch(fetchRequestDetail)
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)") }
+        self.tableView.reloadData()
+        
+        total = 0
+    }
+    
+    func getContext () -> NSManagedObjectContext {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        return appDelegate.persistentContainer.viewContext
+    }
+
+    @IBAction func backPressed(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    func getTotal() {
         if(detailInfo.count >= 1) {
             for i in 0...(detailInfo.count - 1) {
                 if (textTitle.text == detailInfo[i].value(forKey: "title")as? String
@@ -85,45 +109,9 @@ class DetailInfoViewController: UIViewController, UITableViewDataSource, UITable
                 }
             }
         }
+        print ("\(total)")
         labelTotal.text = "\(total)"
-        
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        let context = self.getContext()
-        let fetchRequestDetail = NSFetchRequest<NSManagedObject>(entityName: "Detail")
-        do {
-            detailInfo = try context.fetch(fetchRequestDetail)
-        } catch let error as NSError {
-            print("Could not fetch. \(error), \(error.userInfo)") }
-        self.tableView.reloadData()
-    }
-    
-    func getContext () -> NSManagedObjectContext {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        return appDelegate.persistentContainer.viewContext
-    }
-
-    @IBAction func backPressed(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
-//    func getTotal() {
-//        if(detailInfo.count >= 1) {
-//            for i in 0...(detailInfo.count - 1) {
-//                if (textTitle.text == detailInfo[i].value(forKey: "title")as? String
-//                    && "\(i + 1)"
-//                    == detailInfo[i].value(forKey: "daycount")as? String)
-//                {
-//                    dayInfo = detailInfo[i]
-//                    costDisplay = (dayInfo.value(forKey: "cost")as? String)!
-//                    total = total + Int(costDisplay)!
-//                }
-//            }
-//        }
-//        labelTotal.text = "\(total)"
-//    }
     
     
     //---------------table view 관련------------------
@@ -149,6 +137,7 @@ class DetailInfoViewController: UIViewController, UITableViewDataSource, UITable
         cell.labelDayCount?.text = dayCountDisplay
         
         var count: Int = 0
+        
         if(detailInfo.count >= 1) {
             for i in 0...(detailInfo.count - 1) {
                 if (textTitle.text == detailInfo[i].value(forKey: "title")as? String
@@ -165,6 +154,8 @@ class DetailInfoViewController: UIViewController, UITableViewDataSource, UITable
                     
                     cell.labelDay?.text = dayDisplay
                     cell.labelCost?.text = costDisplay
+                    
+                    total = total + Int(costDisplay)!
                 }
                 else {
                     cell.labelDay?.text = dayDisplay
@@ -172,6 +163,9 @@ class DetailInfoViewController: UIViewController, UITableViewDataSource, UITable
                 }
             }
         }
+        
+        
+        labelTotal.text = "Total : \(total)  "
         
         return cell
     }

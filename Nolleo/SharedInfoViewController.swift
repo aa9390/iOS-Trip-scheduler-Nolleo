@@ -47,6 +47,10 @@ class SharedInfoViewController: UIViewController {
         
     }
     
+    @IBAction func backPressed(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     // 서버에서 데이터 로드
     // detail만 하면 될듯
     func downloadDataFromServer() -> Void {

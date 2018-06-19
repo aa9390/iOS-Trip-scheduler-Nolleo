@@ -110,36 +110,70 @@ class ShareViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
                 imageFileName = utf8Data
                 print(imageFileName)
                 semaphore.signal()
-            } }
+            }
+        }
         task.resume()
         // 이미지 파일 이름을 서버로 부터 받은 후 해당 이름을 DB에 저장하기 위해 wait()
         _ = semaphore.wait(timeout: DispatchTime.distantFuture)
         //-----------------------------------------
         
         let urlString: String = "http://condi.swu.ac.kr/student/T03nolleo/insertBasicInfo.php"
+//        guard let requestURL = URL(string: urlString) else { return }
+//        request = URLRequest(url: requestURL)
+//        request.httpMethod = "POST"
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//
+//        // DB에 들어갈 변수 설정
+//        guard let userID = appDelegate.ID else { return }
+//        let title = textTitle.text!
+//        let area = textArea.text!
+//        let startdate = startDate.text!
+//        let enddate = endDate.text!
+//        let recommendText = recommendReason.text!
+//        let recommendwhenwhere = recommendWhenWhere.text!
+//        let recommendcost = recommendCost.text!
+//
+//        // DB에 insert
+//        var restString: String = "title=" + title + "&user_id=" + userID
+//        restString = restString + "&area=" + area
+//        restString = restString + "&start_date=" + startdate + "&end_date=" + enddate
+//        restString = restString + "&recommend_reason=" + recommendText
+//        restString = restString + "&recommend_when_where=" + recommendwhenwhere
+//        restString = restString + "&recommend_cost=" + recommendcost
+//        restString = restString + "&recommend_img=" + imageFileName
+//
+//        request.httpBody = restString.data(using: .utf8)
+//        let session2 = URLSession.shared
+//        let task2 = session2.dataTask(with: request) { (responseData, response, responseError) in
+//            guard responseError == nil else { return }
+//            guard let receivedData = responseData else { return }
+//            if let utf8Data = String(data: receivedData, encoding: .utf8) { print(utf8Data) }
+//        }
+//        task2.resume()
+//        _ = self.navigationController?.popViewController(animated: true)
+//    }
         guard let requestURL = URL(string: urlString) else { return }
         request = URLRequest(url: requestURL)
         request.httpMethod = "POST"
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        
-        // DB에 들어갈 변수 설정
         guard let userID = appDelegate.ID else { return }
-        let title = textTitle.text!
-        let area = textArea.text!
-        let startdate = startDate.text!
-        let enddate = endDate.text!
-        let recommendText = recommendReason.text!
-        let recommendwhenwhere = recommendWhenWhere.text!
-        let recommendcost = recommendCost.text!
         
-        // DB에 insert
-        var restString: String = "title=" + title + "&user_id=" + userID
-        restString = restString + "&area=" + area
-        restString = restString + "&start_date=" + startdate + "&end_date=" + enddate
-        restString = restString + "&recommend_reason=" + recommendText
-        restString = restString + "&recommend_when_where=" + recommendwhenwhere
-        restString = restString + "&recommend_cost=" + recommendcost
-        restString = restString + "&recommend_img=" + imageFileName
+                // DB에 들어갈 변수 설정
+                let title = textTitle.text!
+                let area = textArea.text!
+                let startdate = startDate.text!
+                let enddate = endDate.text!
+                let recommendText = recommendReason.text!
+                let recommendwhenwhere = recommendWhenWhere.text!
+                let recommendcost = recommendCost.text!
+        
+                var restString: String = "title=" + title + "&user_id=" + userID
+                restString = restString + "&area=" + area
+                restString = restString + "&start_date=" + startdate + "&end_date=" + enddate
+                restString = restString + "&recommend_reason=" + recommendText
+                restString = restString + "&recommend_when_where=" + recommendwhenwhere
+                restString = restString + "&recommend_cost=" + recommendcost
+                restString = restString + "&recommend_img=" + imageFileName
         
         request.httpBody = restString.data(using: .utf8)
         let session2 = URLSession.shared
@@ -150,6 +184,8 @@ class ShareViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
         }
         task2.resume()
         _ = self.navigationController?.popViewController(animated: true)
+        
+        self.dismiss(animated: true, completion: nil)
     }
-
+    
 }

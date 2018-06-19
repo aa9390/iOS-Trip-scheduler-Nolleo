@@ -31,6 +31,7 @@
 		CD9766D220D6167B00C1B41E /* SharedInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9766D120D6167B00C1B41E /* SharedInfoViewController.swift */; };
 		CD9D6A6920D7538C0016C0A4 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = CD9D6A6820D7538B0016C0A4 /* back.png */; };
 		CD9D6A6B20D755BA0016C0A4 /* back_blue.png in Resources */ = {isa = PBXBuildFile; fileRef = CD9D6A6A20D755BA0016C0A4 /* back_blue.png */; };
+		CD9D6A6D20D885A40016C0A4 /* icon_profile_woman_2.png in Resources */ = {isa = PBXBuildFile; fileRef = CD9D6A6C20D885A30016C0A4 /* icon_profile_woman_2.png */; };
 		CD9E399720D73F2600B0B0E8 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9E399620D73F2600B0B0E8 /* ShareViewController.swift */; };
 		CDAFB0F020C3B1090070B1E5 /* DetailInfoTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAFB0EF20C3B1090070B1E5 /* DetailInfoTableCell.swift */; };
 		CDB1C38520C5612B0077FD0F /* DetailInfoDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB1C38420C5612B0077FD0F /* DetailInfoDayViewController.swift */; };
@@ -65,6 +66,7 @@
 		CD9766D120D6167B00C1B41E /* SharedInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedInfoViewController.swift; sourceTree = "<group>"; };
 		CD9D6A6820D7538B0016C0A4 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		CD9D6A6A20D755BA0016C0A4 /* back_blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_blue.png; sourceTree = "<group>"; };
+		CD9D6A6C20D885A30016C0A4 /* icon_profile_woman_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_profile_woman_2.png; sourceTree = "<group>"; };
 		CD9E399620D73F2600B0B0E8 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		CDAFB0EF20C3B1090070B1E5 /* DetailInfoTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoTableCell.swift; sourceTree = "<group>"; };
 		CDB1C38420C5612B0077FD0F /* DetailInfoDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoDayViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 		CD7D13DF20B95403005A8AAC /* Nolleo */ = {
 			isa = PBXGroup;
 			children = (
+				CD9D6A6C20D885A30016C0A4 /* icon_profile_woman_2.png */,
 				CD9D6A6A20D755BA0016C0A4 /* back_blue.png */,
 				CD9D6A6820D7538B0016C0A4 /* back.png */,
 				CD44FC6C20BBBE560034B048 /* icon_others.png */,
@@ -203,6 +206,7 @@
 				CD7D13E620B95403005A8AAC /* Main.storyboard in Resources */,
 				CD9D6A6B20D755BA0016C0A4 /* back_blue.png in Resources */,
 				CD7D13FE20BB09DB005A8AAC /* icon_profile_woman.png in Resources */,
+				CD9D6A6D20D885A40016C0A4 /* icon_profile_woman_2.png in Resources */,
 				CD7D140420BB0F7C005A8AAC /* icon_mypage.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

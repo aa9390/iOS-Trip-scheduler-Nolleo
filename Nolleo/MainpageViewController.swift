@@ -16,7 +16,7 @@ class MainpageViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
 //         테이블 뷰 높이 지정
-        tableView.rowHeight = 68
+        tableView.rowHeight = 70
     }
     
     override func viewDidAppear(_ animated: Bool) {
