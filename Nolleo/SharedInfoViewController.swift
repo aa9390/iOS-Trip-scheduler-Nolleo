@@ -16,11 +16,11 @@ class SharedInfoViewController: UIViewController {
     @IBOutlet var labelArea: UILabel!
     @IBOutlet var labelStartDate: UILabel!
     @IBOutlet var labelEndDate: UILabel!
-    @IBOutlet var labelSavedDate: UILabel!
     @IBOutlet var labelUserid: UILabel!
     @IBOutlet var labelRecommend: UILabel!
     @IBOutlet var labelWhenWhere: UILabel!
     @IBOutlet var labelCost: UILabel!
+    @IBOutlet var imageView: UIImageView!
     
     var selectedData: BasicInfoData?
     
@@ -37,6 +37,16 @@ class SharedInfoViewController: UIViewController {
         labelEndDate.text = sharedData.end_date
         labelWhenWhere.text = sharedData.recommend_when_where
         labelCost.text = sharedData.recommend_cost
+        
+        var imageName = selectedData?.recommend_img // 숫자.jpg 로 저장된 파일 이름
+        if (imageName != "") {
+            let urlString = "http://condi.swu.ac.kr/student/favorite/"
+            imageName = urlString + imageName!
+            let url = URL(string: imageName!)!
+            if let imageData = try? Data(contentsOf: url) {
+                imageView.image = UIImage(data: imageData)
+                // 웹에서 파일 이미지를 접근함
+            } }
         
     }
     
@@ -94,10 +104,7 @@ class SharedInfoViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    // 뒤로가기 버튼 클릭
-    @IBAction func backPressed() {
-         self.dismiss(animated: true, completion: nil)
-    }
+
     
     /*
     // MARK: - Navigation

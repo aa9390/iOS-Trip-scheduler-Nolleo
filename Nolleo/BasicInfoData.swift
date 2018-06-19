@@ -18,4 +18,5 @@ class BasicInfoData: NSObject {
     var recommend_reason:String = ""
     var recommend_cost: String = ""
     var recommend_when_where: String = ""
+    var recommend_img: String = ""
 }
