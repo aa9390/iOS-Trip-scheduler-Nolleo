@@ -382,6 +382,21 @@ class DayViewController: UIViewController, NMapViewDelegate, NMapPOIdataOverlayD
     // 임시로 Detail로 엔티티 설정.
     // Detail 엔티티에 데이터 저장
     @IBAction func savePressed() {
+        
+        if textPlace.text == "" {
+            let alert = UIAlertController(title: "장소를 입력하세요",message: "Save Failed!!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in alert.dismiss(animated: true, completion: nil) }))
+            self.present(alert, animated: true)
+            return
+        }
+        
+        if textCost.text == "" {
+            let alert = UIAlertController(title: "비용을 입력해 주세요",message: "Save Failed!!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in alert.dismiss(animated: true, completion: nil) }))
+            self.present(alert, animated: true)
+            return
+        }
+        
         let context = getContext()
         let entity = NSEntityDescription.entity(forEntityName: "Detail", in: context)
         
