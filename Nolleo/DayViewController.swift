@@ -44,7 +44,7 @@ class DayViewController: UIViewController, NMapViewDelegate, NMapPOIdataOverlayD
         super.viewDidLoad()
         
         // viewWithNMap 안에 지도 설정
-        mapView = NMapView(frame: viewWithNMap.frame)
+        mapView = NMapView(frame: self.viewWithNMap.frame)
         if let mapView = mapView {
             // set the delegate for map view
             mapView.delegate = self
@@ -53,14 +53,14 @@ class DayViewController: UIViewController, NMapViewDelegate, NMapPOIdataOverlayD
             // set the application api key for Open MapViewer Library
             mapView.setClientId("VzFN7JYE7dUDYEh6EgZa")
             mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-            viewWithNMap.addSubview(mapView)
+            self.viewWithNMap.addSubview(mapView)
         }
         
         // Add Controls.
         changeStateButton = createButton()
         
         if let button = changeStateButton {
-            view.addSubview(button)
+            self.viewWithNMap.addSubview(button)
         }
 
 //        let coco = appDelegate.dayCount!
@@ -199,6 +199,7 @@ class DayViewController: UIViewController, NMapViewDelegate, NMapPOIdataOverlayD
         self.title = address
         
         labelResult.text = "\(address!)"
+        textPlace.text = textPlace.text! + ", \(placemark.dongName!)"
     }
     
     open func location(_ location: NGeoPoint, didFailWithError error: NMapError!) {
@@ -322,7 +323,7 @@ class DayViewController: UIViewController, NMapViewDelegate, NMapPOIdataOverlayD
         
         let button = UIButton(type: .custom)
         
-        button.frame = CGRect(x: 15, y: 30, width: 36, height: 36)
+        button.frame = CGRect(x: 8, y: 25, width: 36, height: 36)
         button.setImage(#imageLiteral(resourceName: "v4_btn_navi_location_normal"), for: .normal)
         
         button.addTarget(self, action: #selector(buttonClicked(_:)), for: .touchUpInside)
@@ -401,15 +402,5 @@ class DayViewController: UIViewController, NMapViewDelegate, NMapPOIdataOverlayD
         // 현재의 View를 없애고 이전 화면으로 복귀
         self.dismiss(animated: true, completion: nil)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
