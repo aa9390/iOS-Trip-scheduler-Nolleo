@@ -27,6 +27,7 @@
 		CD7D140320BB0F7C005A8AAC /* icon_main.ico in Resources */ = {isa = PBXBuildFile; fileRef = CD7D140120BB0F7B005A8AAC /* icon_main.ico */; };
 		CD7D140420BB0F7C005A8AAC /* icon_mypage.png in Resources */ = {isa = PBXBuildFile; fileRef = CD7D140220BB0F7C005A8AAC /* icon_mypage.png */; };
 		CD7D140620BB16CE005A8AAC /* BasicInfoSaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7D140520BB16CE005A8AAC /* BasicInfoSaveViewController.swift */; };
+		CD7DF2CD20E0077100049655 /* maps.ios-master in Resources */ = {isa = PBXBuildFile; fileRef = CD7DF2CC20E0076F00049655 /* maps.ios-master */; };
 		CD92FD5820DD499500D10B0F /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD92FD5720DD499500D10B0F /* CommentViewController.swift */; };
 		CD92FD5A20DF455A00D10B0F /* MapTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD92FD5920DF455A00D10B0F /* MapTestViewController.swift */; };
 		CD92FD5C20DF493D00D10B0F /* ApiGatewayMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD92FD5B20DF493B00D10B0F /* ApiGatewayMac.framework */; };
@@ -83,6 +84,7 @@
 		CD7D140120BB0F7B005A8AAC /* icon_main.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = icon_main.ico; sourceTree = "<group>"; };
 		CD7D140220BB0F7C005A8AAC /* icon_mypage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_mypage.png; sourceTree = "<group>"; };
 		CD7D140520BB16CE005A8AAC /* BasicInfoSaveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicInfoSaveViewController.swift; sourceTree = "<group>"; };
+		CD7DF2CC20E0076F00049655 /* maps.ios-master */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "maps.ios-master"; path = "Nolleo/maps.ios-master"; sourceTree = "<group>"; };
 		CD92FD5720DD499500D10B0F /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		CD92FD5920DF455A00D10B0F /* MapTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTestViewController.swift; sourceTree = "<group>"; };
 		CD92FD5B20DF493B00D10B0F /* ApiGatewayMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ApiGatewayMac.framework; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				CD7D13DF20B95403005A8AAC /* Nolleo */,
 				CD7D13DE20B95403005A8AAC /* Products */,
 				CD92FD5B20DF493B00D10B0F /* ApiGatewayMac.framework */,
+				CD7DF2CC20E0076F00049655 /* maps.ios-master */,
 				CD92FD5F20DF49A800D10B0F /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -203,7 +206,7 @@
 				CD7D13DA20B95403005A8AAC /* Frameworks */,
 				CD7D13DB20B95403005A8AAC /* Resources */,
 				CD92FD5E20DF493D00D10B0F /* Embed Frameworks */,
-				CD92FD6220DF4A7A00D10B0F /* ShellScript */,
+				CD92FD6220DF4A7A00D10B0F /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -260,6 +263,7 @@
 				CD9D6A6920D7538C0016C0A4 /* back.png in Resources */,
 				CD7D13E620B95403005A8AAC /* Main.storyboard in Resources */,
 				CD9D6A6B20D755BA0016C0A4 /* back_blue.png in Resources */,
+				CD7DF2CD20E0077100049655 /* maps.ios-master in Resources */,
 				CD7D13FE20BB09DB005A8AAC /* icon_profile_woman.png in Resources */,
 				CD9D6A6D20D885A40016C0A4 /* icon_profile_woman_2.png in Resources */,
 				CD7D140420BB0F7C005A8AAC /* icon_mypage.png in Resources */,
@@ -269,18 +273,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		CD92FD6220DF4A7A00D10B0F /* ShellScript */ = {
+		CD92FD6220DF4A7A00D10B0F /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Run Script";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/Users/swucomputer/Desktop/maps.ios-master/Scripts/strip-frameworks.sh";
+			shellScript = "################################################################################\n#\n# Copyright 2015 Realm Inc.\n#\n# Licensed under the Apache License, Version 2.0 (the \"License\");\n# you may not use this file except in compliance with the License.\n# You may obtain a copy of the License at\n#\n# http://www.apache.org/licenses/LICENSE-2.0\n#\n# Unless required by applicable law or agreed to in writing, software\n# distributed under the License is distributed on an \"AS IS\" BASIS,\n# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n# See the License for the specific language governing permissions and\n# limitations under the License.\n#\n################################################################################\n\n# This script strips all non-valid architectures from dynamic libraries in\n# the application's `Frameworks` directory.\n#\n# The following environment variables are required:\n#\n# BUILT_PRODUCTS_DIR\n# FRAMEWORKS_FOLDER_PATH\n# VALID_ARCHS\n# EXPANDED_CODE_SIGN_IDENTITY\n\n\n# Signs a framework with the provided identity\ncode_sign() {\n    # Use the current code_sign_identitiy\n    echo \"Code Signing $1 with Identity ${EXPANDED_CODE_SIGN_IDENTITY_NAME}\"\n    echo \"/usr/bin/codesign --force --sign ${EXPANDED_CODE_SIGN_IDENTITY} --preserve-metadata=identifier,entitlements $1\"\n    /usr/bin/codesign --force --sign ${EXPANDED_CODE_SIGN_IDENTITY} --preserve-metadata=identifier,entitlements \"$1\"\n}\n\n# Set working directory to product’s embedded frameworks\ncd \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}\"\n\nif [ \"$ACTION\" = \"install\" ]; then\necho \"Copy .bcsymbolmap files to .xcarchive\"\nfind . -name '*.bcsymbolmap' -type f -exec mv {} \"${CONFIGURATION_BUILD_DIR}\" \\;\nelse\n# Delete *.bcsymbolmap files from framework bundle unless archiving\nfind . -name '*.bcsymbolmap' -type f -exec rm -rf \"{}\" +\\;\nfi\n\necho \"Stripping frameworks\"\n\nfor file in $(find . -type f -perm +111); do\n# Skip non-dynamic libraries\nif ! [[ \"$(file \"$file\")\" == *\"dynamically linked shared library\"* ]]; then\ncontinue\nfi\n# Get architectures for current file\narchs=\"$(lipo -info \"${file}\" | rev | cut -d ':' -f1 | rev)\"\nstripped=\"\"\nfor arch in $archs; do\nif ! [[ \"${VALID_ARCHS}\" == *\"$arch\"* ]]; then\n# Strip non-valid architectures in-place\nlipo -remove \"$arch\" -output \"$file\" \"$file\" || exit 1\nstripped=\"$stripped $arch\"\nfi\ndone\nif [[ \"$stripped\" != \"\" ]]; then\necho \"Stripped $file of architectures:$stripped\"\nif [ \"${CODE_SIGNING_REQUIRED}\" == \"YES\" ]; then\ncode_sign \"${file}\"\nfi\nfi\ndone\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -453,7 +458,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"/Users/swucomputer/Desktop/maps.ios-master/Frameworks",
+					"\"$(SRCROOT)/Nolleo/maps.ios-master/Frameworks\"",
 				);
 				INFOPLIST_FILE = Nolleo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -463,7 +468,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ksy.Nolleo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = /Users/swucomputer/Documents/Nolleo/Nolleo/forNMap.h;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Nolleo/forNMap.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -477,7 +482,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"/Users/swucomputer/Desktop/maps.ios-master/Frameworks",
+					"\"$(SRCROOT)/Nolleo/maps.ios-master/Frameworks\"",
 				);
 				INFOPLIST_FILE = Nolleo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -487,7 +492,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ksy.Nolleo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = /Users/swucomputer/Documents/Nolleo/Nolleo/forNMap.h;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/Nolleo/forNMap.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
