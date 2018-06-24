@@ -10,13 +10,16 @@ import UIKit
 import CoreData
 import MapKit
 
-class DetailInfoViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class DetailInfoViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NMapViewDelegate, NMapPOIdataOverlayDelegate {
+
     @IBOutlet var tableView: UITableView!
     @IBOutlet var textTitle: UILabel!
     @IBOutlet var textArea: UILabel!
     @IBOutlet var startDate: UILabel!
     @IBOutlet var endDate: UILabel!
     @IBOutlet var labelTotal: UILabel!
+    @IBOutlet var viewWithNMap: UIView!
+    
     //    @IBOutlet var recommendReason: UITextView!
     
     var dayCountDisplay: String = ""
@@ -36,6 +39,9 @@ class DetailInfoViewController: UIViewController, UITableViewDataSource, UITable
     
     var detailInfo: [NSManagedObject] = []
     var dayInfo: NSManagedObject!
+    
+    var mapView: NMapView?
+    var changeStateButton: UIButton?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,6 +78,40 @@ class DetailInfoViewController: UIViewController, UITableViewDataSource, UITable
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)") }
         
+        
+        mapView = NMapView(frame: view.frame)
+        if let mapView = mapView {
+            // set the delegate for map view
+            mapView.delegate = self
+            
+            // set the application api key for Open MapViewer Library
+            mapView.setClientId("VzFN7JYE7dUDYEh6EgZa")
+            mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            self.viewWithNMap.addSubview(mapView)
+        }
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        mapView?.didReceiveMemoryWarning()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        mapView?.viewWillAppear()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        mapView?.viewWillDisappear()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        mapView?.viewDidDisappear()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -85,6 +125,9 @@ class DetailInfoViewController: UIViewController, UITableViewDataSource, UITable
         self.tableView.reloadData()
         
         total = 0
+        
+        mapView?.viewDidAppear()
+//        requestAddressByCoordination(NGeoPoint(longitude: 126.978371, latitude: 37.5666091))
     }
     
     func getContext () -> NSManagedObjectContext {
@@ -169,7 +212,53 @@ class DetailInfoViewController: UIViewController, UITableViewDataSource, UITable
         
         return cell
     }
-
+    // ---------------------------------------
+    
+    // ------------- NMap 관련 ----------------
+    // MARK: - NMapViewDelegate Methods
+    open func onMapView(_ mapView: NMapView!, initHandler error: NMapError!) {
+        if (error == nil) { // success
+            // set map center and level
+            mapView.setMapCenter(NGeoPoint(longitude:126.978371, latitude:37.5666091), atLevel:11)
+            // set for retina display
+            mapView.setMapEnlarged(true, mapHD: true)
+            // set map mode : vector/satelite/hybrid
+            mapView.mapViewMode = .vector
+        } else { // fail
+            print("onMapView:initHandler: \(error.description)")
+        }
+    }
+    
+    open func onMapView(_ mapView: NMapView!, touchesEnded touches: Set<AnyHashable>!, with event: UIEvent!) {
+        
+        if let touch = event.allTouches?.first {
+            // Get the specific point that was touched
+            let scrPoint = touch.location(in: mapView)
+            
+            print("scrPoint: \(scrPoint)")
+            print("to: \(mapView.fromPoint(scrPoint))")
+//            requestAddressByCoordination(mapView.fromPoint(scrPoint))
+        }
+    }
+    
+    open func onMapOverlay(_ poiDataOverlay: NMapPOIdataOverlay!, imageForOverlayItem poiItem: NMapPOIitem!, selected: Bool) -> UIImage! {
+        return NMapViewResources.imageWithType(poiItem.poiFlagType, selected: selected);
+    }
+    
+    open func onMapOverlay(_ poiDataOverlay: NMapPOIdataOverlay!, anchorPointWithType poiFlagType: NMapPOIflagType) -> CGPoint {
+        return NMapViewResources.anchorPoint(withType: poiFlagType)
+    }
+    
+    open func onMapOverlay(_ poiDataOverlay: NMapPOIdataOverlay!, calloutOffsetWithType poiFlagType: NMapPOIflagType) -> CGPoint {
+        return CGPoint.zero
+    }
+    
+    open func onMapOverlay(_ poiDataOverlay: NMapPOIdataOverlay!, imageForCalloutOverlayItem poiItem: NMapPOIitem!, constraintSize: CGSize, selected: Bool, imageForCalloutRightAccessory: UIImage!, calloutPosition: UnsafeMutablePointer<CGPoint>!, calloutHit calloutHitRect: UnsafeMutablePointer<CGRect>!) -> UIImage! {
+        return nil
+    }
+    // ------------------------------------
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // 세부 페이지로 이동
         if segue.identifier == "toDetailDayView" {

@@ -116,8 +116,6 @@ class DayViewController: UIViewController, NMapViewDelegate, NMapPOIdataOverlayD
     }
     
     // ---------------- NMap 관련 -----------------
-    
-    
     // 내 위치 버튼 클릭 시 보여질 메시지 설정
     func locationManager(_ locationManager: NMapLocationManager!, didFailWithError errorType: NMapLocationManagerErrorType) {
         var message: String = ""
