@@ -116,10 +116,9 @@
 		CD7D13D420B95403005A8AAC = {
 			isa = PBXGroup;
 			children = (
-				CD92FD6620DF4FD000D10B0F /* icons */,
-				CD92FD5B20DF493B00D10B0F /* ApiGatewayMac.framework */,
 				CD7D13DF20B95403005A8AAC /* Nolleo */,
 				CD7D13DE20B95403005A8AAC /* Products */,
+				CD92FD5B20DF493B00D10B0F /* ApiGatewayMac.framework */,
 				CD92FD5F20DF49A800D10B0F /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -135,6 +134,7 @@
 		CD7D13DF20B95403005A8AAC /* Nolleo */ = {
 			isa = PBXGroup;
 			children = (
+				CD92FD6620DF4FD000D10B0F /* icons */,
 				CD92FD6420DF4F3900D10B0F /* NMapViewResources.swift */,
 				CD7D13E020B95403005A8AAC /* AppDelegate.swift */,
 				CD7D13E220B95403005A8AAC /* LoginViewController.swift */,
