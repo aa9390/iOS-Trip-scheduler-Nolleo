@@ -15,6 +15,7 @@ class MainpageTableViewCell: UITableViewCell {
     @IBOutlet var labelStartDate: UILabel!
     @IBOutlet var labelEndDate: UILabel!
     @IBOutlet var labelId: UILabel!
+    @IBOutlet var imgProfile: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

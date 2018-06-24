@@ -10,6 +10,7 @@
 		CD19075F20C3E98B0095737D /* MainpageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD19075E20C3E98B0095737D /* MainpageTableViewCell.swift */; };
 		CD19076120C54C890095737D /* BasicInfoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD19076020C54C890095737D /* BasicInfoData.swift */; };
 		CD3AD01920C3DF1800813930 /* MainpageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3AD01820C3DF1800813930 /* MainpageViewController.swift */; };
+		CD42003920DFA30C0058E27B /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD42003820DFA30C0058E27B /* UserData.swift */; };
 		CD44FC6D20BBBE570034B048 /* icon_others.png in Resources */ = {isa = PBXBuildFile; fileRef = CD44FC6C20BBBE560034B048 /* icon_others.png */; };
 		CD44FC6F20BBCB410034B048 /* BasicInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD44FC6E20BBCB410034B048 /* BasicInfoTableViewCell.swift */; };
 		CD44FC7120BBDFEC0034B048 /* DetailInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD44FC7020BBDFEC0034B048 /* DetailInfoViewController.swift */; };
@@ -63,6 +64,7 @@
 		CD19075E20C3E98B0095737D /* MainpageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainpageTableViewCell.swift; sourceTree = "<group>"; };
 		CD19076020C54C890095737D /* BasicInfoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicInfoData.swift; sourceTree = "<group>"; };
 		CD3AD01820C3DF1800813930 /* MainpageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainpageViewController.swift; sourceTree = "<group>"; };
+		CD42003820DFA30C0058E27B /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		CD44FC6C20BBBE560034B048 /* icon_others.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_others.png; sourceTree = "<group>"; };
 		CD44FC6E20BBCB410034B048 /* BasicInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicInfoTableViewCell.swift; sourceTree = "<group>"; };
 		CD44FC7020BBDFEC0034B048 /* DetailInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoViewController.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				CD92FD5720DD499500D10B0F /* CommentViewController.swift */,
 				CD92FD5920DF455A00D10B0F /* MapTestViewController.swift */,
 				CD92FD6320DF4B5A00D10B0F /* forNMap.h */,
+				CD42003820DFA30C0058E27B /* UserData.swift */,
 			);
 			path = Nolleo;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				CD92FD6520DF4F3A00D10B0F /* NMapViewResources.swift in Sources */,
 				CD92FD5820DD499500D10B0F /* CommentViewController.swift in Sources */,
 				CD7D13FA20BAFE8C005A8AAC /* MainTableViewController.swift in Sources */,
+				CD42003920DFA30C0058E27B /* UserData.swift in Sources */,
 				CD7D13E120B95403005A8AAC /* AppDelegate.swift in Sources */,
 				CD7D140620BB16CE005A8AAC /* BasicInfoSaveViewController.swift in Sources */,
 				CDAFB0F020C3B1090070B1E5 /* DetailInfoTableCell.swift in Sources */,

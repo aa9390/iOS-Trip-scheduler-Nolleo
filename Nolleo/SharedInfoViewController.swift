@@ -40,7 +40,7 @@ class SharedInfoViewController: UIViewController {
         
         var imageName = selectedData?.recommend_img // 숫자.jpg 로 저장된 파일 이름
         if (imageName != "") {
-            let urlString = "http://condi.swu.ac.kr/student/T03nolleo"
+            let urlString = "http://condi.swu.ac.kr/student/T03nolleo/"
             imageName = urlString + imageName!
             let url = URL(string: imageName!)!
             if let imageData = try? Data(contentsOf: url) {

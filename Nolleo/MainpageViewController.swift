@@ -12,6 +12,7 @@ class MainpageViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet var tableView: UITableView!
     
     var fetchedArray: [BasicInfoData] = Array()
+    var fetchedArray_user: [UserData] = Array()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,7 @@ class MainpageViewController: UIViewController, UITableViewDataSource, UITableVi
         fetchedArray = [] // 배열을 초기화하고 서버에서 자료를 다시 가져옴
         // 서버에서 데이터 가져옴
         self.downloadDataFromServer()
+        self.downloadDataFromServer_user()
         
     }
     
@@ -64,6 +66,39 @@ class MainpageViewController: UIViewController, UITableViewDataSource, UITableVi
         task.resume()
     }
     
+    
+    // 서버에서 데이터 로드
+    func downloadDataFromServer_user() -> Void {
+        let urlString: String = "http://condi.swu.ac.kr/student/T03nolleo/selectUser.php"
+        
+        guard let requestURL = URL(string: urlString) else { return }
+        let request = URLRequest(url: requestURL)
+        let session = URLSession.shared
+        let task = session.dataTask(with: request) { (responseData, response, responseError) in
+            guard responseError == nil else { print("Error: calling POST"); return; }
+            guard let receivedData = responseData else {
+                print("Error: not receiving Data"); return; }
+            
+            let response = response as! HTTPURLResponse
+            if !(200...299 ~= response.statusCode) { print("HTTP response Error!"); return }
+            do {
+                if let jsonData = try JSONSerialization.jsonObject (with: receivedData,options:.allowFragments) as? [[String: Any]] {
+                    for i in 0...jsonData.count-1 {
+                        let newData: UserData = UserData()
+                        var jsonElement = jsonData[i]
+                        newData.user_id = jsonElement["user_id"] as! String
+                        newData.user_pw = jsonElement["user_pw"] as! String
+                        newData.user_name = jsonElement["user_name"] as! String
+                        newData.user_gender = jsonElement["user_gender"] as! String
+                        newData.user_birth = jsonElement["user_birth"] as! String
+                        newData.profile_img = jsonElement["profile_img"] as! String
+                        self.fetchedArray_user.append(newData)
+                    }
+                    DispatchQueue.main.async { self.tableView.reloadData() } }
+            } catch { print("Error:") } }
+        task.resume()
+    }
+    
     // Table view 관련
     func numberOfSections (in tableView: UITableView) -> Int {
         return 1
@@ -78,6 +113,7 @@ class MainpageViewController: UIViewController, UITableViewDataSource, UITableVi
         let cell = tableView.dequeueReusableCell(withIdentifier: "Mainpage Basic Info Cell", for: indexPath) as! MainpageTableViewCell
         
         let item = fetchedArray[indexPath.row]
+//        let item_user = fetchedArray_user[indexPath.row]
         
         cell.labelId?.text = item.user_id
         cell.labelTripTitle?.text = item.title
@@ -85,6 +121,16 @@ class MainpageViewController: UIViewController, UITableViewDataSource, UITableVi
         cell.labelStartDate?.text = item.start_date
         cell.labelEndDate?.text = item.end_date
         
+//        var imageName = item_user.profile_img// 숫자.jpg 로 저장된 파일 이름
+//        if (imageName != "") {
+//            let urlString = "http://condi.swu.ac.kr/student/T03nolleo"
+//            imageName = urlString + imageName
+//            let url = URL(string: imageName)!
+//            if let imageData = try? Data(contentsOf: url) {
+//                cell.imgProfile.image = UIImage(data: imageData)
+//                // 웹에서 파일 이미지를 접근함
+//            } }
+
         return cell
     }
     
