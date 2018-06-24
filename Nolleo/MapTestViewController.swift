@@ -163,22 +163,21 @@ class MapTestViewController: UIViewController, NMapViewDelegate, NMapPOIdataOver
         
         // 클릭한 위치의 주소
         let address = placemark.address
-
         self.title = address
 
         // 지도 위 위치 클릭 시 alert 설정
 //        let alert = UIAlertController(title: "검색 결과", message: address, preferredStyle: .alert)
 //        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
 //        present(alert, animated: true, completion: nil)
-        labelResult.text = address
+        labelResult.text = "\(location.longitude)"
     }
 
     open func location(_ location: NGeoPoint, didFailWithError error: NMapError!) {
         print("location:경도 : (\(location.longitude), 위도 :\(location.latitude)) didFailWithError: \(error.description)")
+//        labelResult.text = "\(location.longitude)"
     }
 
     // MARK: -
-
     func requestAddressByCoordination(_ point: NGeoPoint) {
         mapView?.findPlacemark(atLocation: point)
         setMarker(point)

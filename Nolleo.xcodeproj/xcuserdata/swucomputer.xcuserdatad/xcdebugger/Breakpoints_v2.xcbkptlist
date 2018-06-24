@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nolleo/CreateViewController.swift"
-            timestampString = "551511335.832847"
+            timestampString = "551514558.3436"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "215"
@@ -58,7 +58,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nolleo/DetailInfoViewController.swift"
-            timestampString = "551511335.833769"
+            timestampString = "551514558.3444591"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "49"
@@ -74,7 +74,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nolleo/LoginViewController.swift"
-            timestampString = "551511335.834715"
+            timestampString = "551514558.3455549"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "30"
@@ -106,7 +106,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Nolleo/MypageTableViewController.swift"
-            timestampString = "551511335.835685"
+            timestampString = "551514558.3465641"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "57"
@@ -129,84 +129,6 @@
             endingLineNumber = "65"
             landmarkName = "viewDidAppear(_:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Nolleo/DayViewController.swift"
-            timestampString = "551511335.8360929"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "14"
-            endingLineNumber = "14"
-            landmarkName = "DayViewController"
-            landmarkType = "3">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Nolleo.DayViewController.labelPlace.getter : Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UILabel&gt;"
-                  moduleName = "Nolleo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/swucomputer/Documents/Nolleo/Nolleo/DayViewController.swift"
-                  timestampString = "550893871.767965"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "14"
-                  endingLineNumber = "14"
-                  offsetFromSymbolStart = "109">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Nolleo.DayViewController.labelPlace.setter : Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UILabel&gt;"
-                  moduleName = "Nolleo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/swucomputer/Documents/Nolleo/Nolleo/DayViewController.swift"
-                  timestampString = "550893871.7709"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "14"
-                  endingLineNumber = "14"
-                  offsetFromSymbolStart = "112">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Nolleo.DayViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; Nolleo.DayViewController"
-                  moduleName = "Nolleo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/swucomputer/Documents/Nolleo/Nolleo/DayViewController.swift"
-                  timestampString = "550893871.7746609"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "14"
-                  endingLineNumber = "14"
-                  offsetFromSymbolStart = "77">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Nolleo.DayViewController.init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;Nolleo.DayViewController&gt;"
-                  moduleName = "Nolleo"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/swucomputer/Documents/Nolleo/Nolleo/DayViewController.swift"
-                  timestampString = "550893871.776406"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "14"
-                  endingLineNumber = "14"
-                  offsetFromSymbolStart = "49">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
