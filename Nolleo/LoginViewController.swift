@@ -79,12 +79,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 //                    if let name = jsonData["name"] as! String! {
                         DispatchQueue.main.async {
 //                            self.labelLoginStatus.text = name + "님 안녕하세요?"
-                            
-                            // app Delegate에 ID 전역변수 설정
-                            // 현재는 id만 있음.
+            
                             let appDelegate = UIApplication.shared.delegate as! AppDelegate
                             appDelegate.ID = self.loginUserid.text
 //                            appDelegate.userName = name
+//                            appDelegate.profile_img =
                             self.performSegue(withIdentifier: "toLoginSuccess", sender: self)
                         }
 //                    }

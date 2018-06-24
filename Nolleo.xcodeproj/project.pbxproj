@@ -26,6 +26,12 @@
 		CD7D140320BB0F7C005A8AAC /* icon_main.ico in Resources */ = {isa = PBXBuildFile; fileRef = CD7D140120BB0F7B005A8AAC /* icon_main.ico */; };
 		CD7D140420BB0F7C005A8AAC /* icon_mypage.png in Resources */ = {isa = PBXBuildFile; fileRef = CD7D140220BB0F7C005A8AAC /* icon_mypage.png */; };
 		CD7D140620BB16CE005A8AAC /* BasicInfoSaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7D140520BB16CE005A8AAC /* BasicInfoSaveViewController.swift */; };
+		CD92FD5820DD499500D10B0F /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD92FD5720DD499500D10B0F /* CommentViewController.swift */; };
+		CD92FD5A20DF455A00D10B0F /* MapTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD92FD5920DF455A00D10B0F /* MapTestViewController.swift */; };
+		CD92FD5C20DF493D00D10B0F /* ApiGatewayMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD92FD5B20DF493B00D10B0F /* ApiGatewayMac.framework */; };
+		CD92FD5D20DF493D00D10B0F /* ApiGatewayMac.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CD92FD5B20DF493B00D10B0F /* ApiGatewayMac.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CD92FD6120DF49AB00D10B0F /* NMapViewerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD92FD6020DF49AB00D10B0F /* NMapViewerSDK.framework */; };
+		CD92FD6520DF4F3A00D10B0F /* NMapViewResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD92FD6420DF4F3900D10B0F /* NMapViewResources.swift */; };
 		CD9766CE20D55BED00C1B41E /* DetailDayInfoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9766CD20D55BED00C1B41E /* DetailDayInfoData.swift */; };
 		CD9766D020D5860D00C1B41E /* DayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9766CF20D5860D00C1B41E /* DayViewController.swift */; };
 		CD9766D220D6167B00C1B41E /* SharedInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9766D120D6167B00C1B41E /* SharedInfoViewController.swift */; };
@@ -38,6 +44,20 @@
 		CDE380AF20D50D1B009B9D5D /* DayInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE380AE20D50D1B009B9D5D /* DayInfoTableViewCell.swift */; };
 		CDE380B120D51CB5009B9D5D /* DetailInfoSaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE380B020D51CB5009B9D5D /* DetailInfoSaveViewController.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CD92FD5E20DF493D00D10B0F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				CD92FD5D20DF493D00D10B0F /* ApiGatewayMac.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		CD19075E20C3E98B0095737D /* MainpageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainpageTableViewCell.swift; sourceTree = "<group>"; };
@@ -61,6 +81,12 @@
 		CD7D140120BB0F7B005A8AAC /* icon_main.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; path = icon_main.ico; sourceTree = "<group>"; };
 		CD7D140220BB0F7C005A8AAC /* icon_mypage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_mypage.png; sourceTree = "<group>"; };
 		CD7D140520BB16CE005A8AAC /* BasicInfoSaveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicInfoSaveViewController.swift; sourceTree = "<group>"; };
+		CD92FD5720DD499500D10B0F /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
+		CD92FD5920DF455A00D10B0F /* MapTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTestViewController.swift; sourceTree = "<group>"; };
+		CD92FD5B20DF493B00D10B0F /* ApiGatewayMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ApiGatewayMac.framework; sourceTree = "<group>"; };
+		CD92FD6020DF49AB00D10B0F /* NMapViewerSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NMapViewerSDK.framework; path = "../../Desktop/maps.ios-master/Frameworks/NMapViewerSDK.framework"; sourceTree = "<group>"; };
+		CD92FD6320DF4B5A00D10B0F /* forNMap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = forNMap.h; sourceTree = "<group>"; };
+		CD92FD6420DF4F3900D10B0F /* NMapViewResources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NMapViewResources.swift; sourceTree = "<group>"; };
 		CD9766CD20D55BED00C1B41E /* DetailDayInfoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDayInfoData.swift; sourceTree = "<group>"; };
 		CD9766CF20D5860D00C1B41E /* DayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayViewController.swift; sourceTree = "<group>"; };
 		CD9766D120D6167B00C1B41E /* SharedInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedInfoViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +105,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD92FD6120DF49AB00D10B0F /* NMapViewerSDK.framework in Frameworks */,
+				CD92FD5C20DF493D00D10B0F /* ApiGatewayMac.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,8 +116,11 @@
 		CD7D13D420B95403005A8AAC = {
 			isa = PBXGroup;
 			children = (
+				CD92FD6620DF4FD000D10B0F /* icons */,
+				CD92FD5B20DF493B00D10B0F /* ApiGatewayMac.framework */,
 				CD7D13DF20B95403005A8AAC /* Nolleo */,
 				CD7D13DE20B95403005A8AAC /* Products */,
+				CD92FD5F20DF49A800D10B0F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -104,13 +135,7 @@
 		CD7D13DF20B95403005A8AAC /* Nolleo */ = {
 			isa = PBXGroup;
 			children = (
-				CD9D6A6C20D885A30016C0A4 /* icon_profile_woman_2.png */,
-				CD9D6A6A20D755BA0016C0A4 /* back_blue.png */,
-				CD9D6A6820D7538B0016C0A4 /* back.png */,
-				CD44FC6C20BBBE560034B048 /* icon_others.png */,
-				CD7D140120BB0F7B005A8AAC /* icon_main.ico */,
-				CD7D140220BB0F7C005A8AAC /* icon_mypage.png */,
-				CD7D13FD20BB09DB005A8AAC /* icon_profile_woman.png */,
+				CD92FD6420DF4F3900D10B0F /* NMapViewResources.swift */,
 				CD7D13E020B95403005A8AAC /* AppDelegate.swift */,
 				CD7D13E220B95403005A8AAC /* LoginViewController.swift */,
 				CD7D13E420B95403005A8AAC /* Main.storyboard */,
@@ -135,8 +160,33 @@
 				CD9766CF20D5860D00C1B41E /* DayViewController.swift */,
 				CD9766D120D6167B00C1B41E /* SharedInfoViewController.swift */,
 				CD9E399620D73F2600B0B0E8 /* ShareViewController.swift */,
+				CD92FD5720DD499500D10B0F /* CommentViewController.swift */,
+				CD92FD5920DF455A00D10B0F /* MapTestViewController.swift */,
+				CD92FD6320DF4B5A00D10B0F /* forNMap.h */,
 			);
 			path = Nolleo;
+			sourceTree = "<group>";
+		};
+		CD92FD5F20DF49A800D10B0F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CD92FD6020DF49AB00D10B0F /* NMapViewerSDK.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CD92FD6620DF4FD000D10B0F /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				CD9D6A6C20D885A30016C0A4 /* icon_profile_woman_2.png */,
+				CD9D6A6A20D755BA0016C0A4 /* back_blue.png */,
+				CD9D6A6820D7538B0016C0A4 /* back.png */,
+				CD44FC6C20BBBE560034B048 /* icon_others.png */,
+				CD7D140120BB0F7B005A8AAC /* icon_main.ico */,
+				CD7D140220BB0F7C005A8AAC /* icon_mypage.png */,
+				CD7D13FD20BB09DB005A8AAC /* icon_profile_woman.png */,
+			);
+			path = icons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,6 +199,8 @@
 				CD7D13D920B95403005A8AAC /* Sources */,
 				CD7D13DA20B95403005A8AAC /* Frameworks */,
 				CD7D13DB20B95403005A8AAC /* Resources */,
+				CD92FD5E20DF493D00D10B0F /* Embed Frameworks */,
+				CD92FD6220DF4A7A00D10B0F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -213,6 +265,22 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		CD92FD6220DF4A7A00D10B0F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/Users/swucomputer/Desktop/maps.ios-master/Scripts/strip-frameworks.sh";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CD7D13D920B95403005A8AAC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -225,6 +293,7 @@
 				CD7D13FC20BAFEAE005A8AAC /* MypageTableViewController.swift in Sources */,
 				CD9766CE20D55BED00C1B41E /* DetailDayInfoData.swift in Sources */,
 				CD7D13F620B95876005A8AAC /* CreateViewController.swift in Sources */,
+				CD92FD5A20DF455A00D10B0F /* MapTestViewController.swift in Sources */,
 				CDE380AF20D50D1B009B9D5D /* DayInfoTableViewCell.swift in Sources */,
 				CD3AD01920C3DF1800813930 /* MainpageViewController.swift in Sources */,
 				CD9766D220D6167B00C1B41E /* SharedInfoViewController.swift in Sources */,
@@ -232,6 +301,8 @@
 				CD7D13E920B95403005A8AAC /* Nolleo.xcdatamodeld in Sources */,
 				CD7D13E320B95403005A8AAC /* LoginViewController.swift in Sources */,
 				CD19075F20C3E98B0095737D /* MainpageTableViewCell.swift in Sources */,
+				CD92FD6520DF4F3A00D10B0F /* NMapViewResources.swift in Sources */,
+				CD92FD5820DD499500D10B0F /* CommentViewController.swift in Sources */,
 				CD7D13FA20BAFE8C005A8AAC /* MainTableViewController.swift in Sources */,
 				CD7D13E120B95403005A8AAC /* AppDelegate.swift in Sources */,
 				CD7D140620BB16CE005A8AAC /* BasicInfoSaveViewController.swift in Sources */,
@@ -375,10 +446,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"/Users/swucomputer/Desktop/maps.ios-master/Frameworks",
+				);
 				INFOPLIST_FILE = Nolleo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lxml2",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = ksy.Nolleo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = /Users/swucomputer/Documents/Nolleo/Nolleo/forNMap.h;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -389,10 +470,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"/Users/swucomputer/Desktop/maps.ios-master/Frameworks",
+				);
 				INFOPLIST_FILE = Nolleo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lxml2",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = ksy.Nolleo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = /Users/swucomputer/Documents/Nolleo/Nolleo/forNMap.h;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

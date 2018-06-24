@@ -75,8 +75,7 @@ class ShareViewController: UIViewController, UITextFieldDelegate, UIImagePickerC
             return
         }
         
-//        let myUrl = URL(string: "http://condi.swu.ac.kr/student/T03nolleo/uploadImg.php");
-        let myUrl = URL(string: "http://condi.swu.ac.kr/student/favorite/upload.php");
+        let myUrl = URL(string: "http://condi.swu.ac.kr/student/T03nolleo/uploadImg.php");
         
         var request = URLRequest(url:myUrl!);
         request.httpMethod = "POST";
